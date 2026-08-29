@@ -1,0 +1,4 @@
+id,student_id,category,total_amount,paid_amount,due_date
+1,1,SEMESTER_FEE,60000.0,40000.0,2026-09-10
+2,1,RESIDENTIAL_FEE,40000.0,33000.0,2026-09-10
+3,1,EXAMINATION_FEE,1500.0,0.0,2026-09-10

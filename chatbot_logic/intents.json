@@ -1,0 +1,146 @@
+{
+  "intents": {
+    "GREETING": [
+      "hello", "hi", "hey", "good morning", "good evening", "good afternoon",
+      "namaste", "hi there", "hello assistant", "hey bot", "kya haal hai",
+      "kaise ho", "how are you", "what's up", "wassup", "greetings", "heyy", "hiii"
+    ],
+    "ATTENDANCE": [
+      "what is my attendance", "show my attendance", "how much attendance do i have",
+      "meri attendance kitni hai", "attendance batao", "check my attendance",
+      "bhai attendance check kar", "attendance check kar", "how many classes have i attended",
+      "am i eligible based on attendance", "what's my attendance percentage",
+      "attendance", "short attendance check", "attendance record",
+      "meri dbms ki attendance kitni hai", "what is my os attendance",
+      "dbms attendance", "did i get attendance today", "check attendance status",
+      "attendence", "attencse", "attandance", "attendance bata", "attendence btao"
+    ],
+    "ATTENDANCE_WARNING": [
+      "am i short on attendance", "am i in the defaulter list", "attendance warning check",
+      "do i have any attendance warnings", "short attendance penalty", "detained in any subject",
+      "attendance short to nahi hai", "meri attendance 75 se kam hai kya",
+      "list of subjects with short attendance", "attendance shortage list"
+    ],
+    "TIMETABLE": [
+      "what is my schedule", "show my timetable", "timetable batao", "timetble",
+      "show timetable", "what classes do i have today", "mera aaj ka schedule kya hai",
+      "kal ka timetable dikhao", "show tomorrow timetable", "what is the routine for today",
+      "bhai aaj konsi classes hain", "aaj class hai kya", "timetable for monday",
+      "class schedule", "routine", "which lectures today", "kal meri classes kya hain",
+      "give me my timetable", "weekly timetable"
+    ],
+    "NEXT_CLASS": [
+      "what is my next class", "when is my next class", "aglee class konsi hai",
+      "next class batao", "where is my next class", "next lecture kab hai",
+      "what class is coming up", "is there any class right now", "where do i go for next class",
+      "which class is next", "next class room number", "next period", "next lecture",
+      "bhai abhi konsi class hai", "meri agli class ka room kahan hai"
+    ],
+    "EXAM": [
+      "when is my exam", "what time is my exam", "where is my exam",
+      "exam kab hai", "mera agla exam konsa hai", "exam schedule",
+      "show exam dates", "exam date sheet", "mid terms kab hain", "exm",
+      "end terms date", "bhai paper kab hai", "dbms ka exam kab hai",
+      "when is my dbms exam", "room number for exam", "exam venue",
+      "what is my exam schedule", "where do i have to go for exam", "exam date batao"
+    ],
+    "EXAM_SYLLABUS": [
+      "what topics are coming in dbms exam", "exam mein kya aayega", "exam syllabus",
+      "syllabus for mid terms", "syllabus for end terms", "portion for exam",
+      "what is the syllabus", "kaunse chapters aa rahe hain exam me", 
+      "show me the syllabus", "exam pattern kya hai", "what to study for exam"
+    ],
+    "FEES": [
+      "how much fee do i have left", "what is my fee balance", "fees kitni baki hai",
+      "fee check karni hai", "due fee amount", "have i paid my fees",
+      "how much fee is remaining", "show fee details",
+      "hostel fee baki hai kya", "bhai fees bata de", "pending fee",
+      "how much pending fees", "fee receipt", "total fees to pay", "fees check"
+    ],
+    "FEE_DEADLINE": [
+      "last date to pay fee", "when is the fee deadline", "fee kab submit karni hai",
+      "fees bharne ki aakhri date kya hai", "fee due date", "deadline for hostel fee",
+      "meri fees kab bharni hai", "what is the last day for fee submission",
+      "fine for late fees", "late fee penalty date", "fees kab dena hai"
+    ],
+    "LIBRARY": [
+      "what time does the library close", "library timings", "library kab band hoti hai",
+      "library khuli hai kya", "when does library open", "is the library open right now",
+      "library location", "library kahan hai", "central library timing", "libary timings",
+      "what are the library hours", "bhai library kab open hogi", "late night library access", "libraray"
+    ],
+    "LIBRARY_BOOK": [
+      "is this book available in library", "search for a book in library", "library book status",
+      "konse floor par book milegi", "where can i find books on python", "book issue karni hai",
+      "library books list", "how many books can i issue", "library fine check",
+      "book return date"
+    ],
+    "HOSTEL_INFO": [
+      "what are the hostel timings", "hostel in time", "hostel out time", "hostle timing",
+      "hostel entry time", "hostel kab band hota hai", "gate closing time",
+      "what time is the hostel gate locked", "hostel rules", "warden details",
+      "hostel mess timings", "mess kab khulta hai", "what time is dinner in mess",
+      "hostel curfew time"
+    ],
+    "HOSTEL_LEAVE": [
+      "i need hostel leave", "apply for hostel leave", "hostel leave lagani hai",
+      "chutti chahiye hostel se", "how to get night out", "night out pass",
+      "leave request", "hostel leave apply karna hai", "bhai ghar jana hai leave kaise lu",
+      "weekend pass for hostel", "gate pass kaise banega", "warden se leave chahiye",
+      "apply leave from 2 september to 5 september", "apply hostel leave", "mujhe hostel leave chahiye"
+    ],
+    "HOSTEL_LEAVE_STATUS": [
+      "has my hostel leave been approved", "leave status check", "is my night out approved",
+      "leave approve hui kya", "warden ne leave approve ki", "check my leave status",
+      "hostel leave application status", "was my leave rejected"
+    ],
+    "CREATE_RMS": [
+      "create an rms for broken ac", "ac kharab hai rms bana do", "file a complaint",
+      "raise rms request", "rms lagana hai", "plumbing issue in room",
+      "internet is not working create rms", "fan repair ke liye rms banana hai", "create an rms",
+      "electricity not working rms", "wifi is down create rms", "internet is not working",
+      "bhai room ki light kharab hai complain karni hai", "fan is not working",
+      "water issue log complaint", "raise ticket for repair", "cleaning required in room", "rms bana do"
+    ],
+    "RMS_STATUS": [
+      "what is the status of my rms", "has my rms been resolved", "check rms ticket status",
+      "ac repair hua kya", "complaint status", "track my rms", "is my rms closed",
+      "rms update dekho", "meri complaint ka kya hua"
+    ],
+    "NOTICES": [
+      "any new notices", "latest announcements", "show me today's notice",
+      "kya chal raha hai university me", "any updates", "circulars",
+      "event updates", "bhai koi notice aaya hai kya", "is there any holiday tomorrow",
+      "show recent notices", "important announcements", "university notice board"
+    ],
+    "RESULT": [
+      "show my result", "cgpa check karni hai", "what is my grade", "marks batao",
+      "mid term result", "end term result", "did i pass", "result kab aayega",
+      "how much did i score in dbms", "tgpa for this semester", "marksheet"
+    ],
+    "COURSE_INFO": [
+      "what is the course outcome", "how many credits is dbms", "course details",
+      "prerequisites for machine learning", "subject credits batao", "is this an elective course",
+      "how many practicals in this course"
+    ],
+    "FACULTY_INFO": [
+      "who is my dbms teacher", "faculty details", "teacher ka cabin kahan hai",
+      "is the teacher on leave today", "contact details of warden", "hod office location"
+    ],
+    "PROFILE": [
+      "show my profile", "my details", "student info", "registration number",
+      "what is my blood group in records", "update my phone number", "profile details"
+    ],
+    "HELP": [
+      "help", "what can you do", "how can you help me", "help me",
+      "batao tum kya kar sakte ho", "features", "what are your capabilities",
+      "i need help", "support", "guide me", "how to use this chatbot"
+    ],
+    "UNKNOWN": [
+      "asdfgh random question", "blah blah", "xyz something something",
+      "jfjdjs sjfks", "i like pizza", "what is the meaning of life",
+      "tell me a joke", "i want to play games", "sing a song for me",
+      "what is the weather", "i want to order pizza", "hello xyz random"
+    ]
+  }
+}

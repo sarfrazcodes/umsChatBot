@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UMS Unified Dashboard</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Top Navigation Bar (3D Mega Menu) -->
+    <nav class="navbar navbar-expand-lg fixed-top top-navbar px-4 position-relative">
+        <div class="container-fluid">
+            <!-- Logo Area -->
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <div class="lh-1">
+                    <span class="d-block fw-bold fs-4"><i class="bi bi-grid-fill me-2"></i>UMS</span>
+                    <small style="font-size: 0.6rem; letter-spacing: 1px;">UNIVERSITY MANAGEMENT SYSTEM</small>
+                </div>
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="bi bi-list fs-1"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto fw-medium">
+
+                    <!-- ACADEMICS MEGA MENU -->
+                    <li class="nav-item dropdown position-static">
+                        <a class="nav-link dropdown-toggle" href="#" id="academicsDropdown">Academics</a>
+                        <div class="dropdown-menu mega-menu shadow-3d">
+                            <div class="container-fluid px-5">
+                                <div class="row g-4">
+                                    <div class="col-md-3">
+                                        <h6 class="mega-title">• Cohorts</h6>
+                                        <ul class="mega-list">
+                                            <li><a href="#">Career Profiling</a></li>
+                                            <li><a href="#">My Cohorts Progress</a></li>
+                                            <li><a href="#">Select Cohort</a></li>
+                                        </ul>
+                                        <h6 class="mega-title mt-4">• Examination System</h6>
+                                        <ul class="mega-list">
+                                            <li><a href="#">Academic Result</a></li>
+                                            <li><a href="#">Application for Degree Extension</a></li>
+                                            <li><a href="#">Registration for Re-Evaluation</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h6 class="mega-title">• Learning Management System (LMS)</h6>
+                                        <ul class="mega-list">
+                                            <li><a href="#">Assignment Download</a></li>
+                                            <li><a href="#">Assignment Upload</a></li>
+                                            <li><a href="#">View Time Table</a></li>
+                                            <li><a href="#">View Attendance</a></li>
+                                            <li><a href="#">View Academic Course Syllabus</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h6 class="mega-title">• Placement Services</h6>
+                                        <ul class="mega-list">
+                                            <li><a href="#">Career Services Registration</a></li>
+                                            <li><a href="#">OJT/Internship Application</a></li>
+                                            <li><a href="#">Placement Portal</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h6 class="mega-title">• Research and Development</h6>
+                                        <ul class="mega-list">
+                                            <li><a href="#">Apply for Duty Leave</a></li>
+                                            <li><a href="#">Research Achievements Report</a></li>
+                                            <li><a href="#">View Ph.D Attendance</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- IMPORTANT LINKS MEGA MENU -->
+                    <li class="nav-item dropdown position-static">
+                        <a class="nav-link dropdown-toggle" href="#" id="linksDropdown">Important Links</a>
+                        <div class="dropdown-menu mega-menu shadow-3d">
+                            <div class="container-fluid px-5">
+                                <div class="row g-4">
+                                    <div class="col-md-4">
+                                        <h6 class="mega-title">• Capstone Dissertation Internships</h6>
+                                        <ul class="mega-list">
+                                            <li><a href="#">External CA format for Internship</a></li>
+                                            <li><a href="#">Guidelines - Inviting External Examiners</a></li>
+                                        </ul>
+                                        <h6 class="mega-title mt-4">• Change Password</h6>
+                                        <ul class="mega-list">
+                                            <li><a href="#">Change UMS Password</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="mega-title">• Miscellaneous Links</h6>
+                                        <ul class="mega-list">
+                                            <li><a href="#">Apply Duplicate ID/ Transport Card</a></li>
+                                            <li><a href="#">Emergency Contact Numbers</a></li>
+                                            <li><a href="#">View Academic Calendar</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="mega-title">• Policies, Rules, Guidelines</h6>
+                                        <ul class="mega-list">
+                                            <li><a href="#">Academic Honour To Regular Students</a></li>
+                                            <li><a href="#">Dress Code and Uniform Policy</a></li>
+                                            <li><a href="#">Library Policy</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- STUDENT SERVICES MEGA MENU -->
+                    <li class="nav-item dropdown position-static">
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown">Student Services</a>
+                        <div class="dropdown-menu mega-menu shadow-3d">
+                            <div class="container-fluid px-5">
+                                <div class="row g-4">
+                                    <div class="col-md-4">
+                                        <h6 class="mega-title">• Academic Tools</h6>
+                                        <ul class="mega-list">
+                                            <li><a href="#" onclick="showFeatureDetails('timetable')"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#featurePanel">Timetable
+                                                    & Schedule</a></li>
+                                            <li><a href="#" onclick="showFeatureDetails('attendance')"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#featurePanel">Predictive
+                                                    Attendance</a></li>
+                                            <li><a href="#" onclick="showFeatureDetails('exams')"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#featurePanel">Exam
+                                                    Intelligence</a></li>
+                                            <li><a href="#" onclick="showFeatureDetails('cgpa')"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#featurePanel">C.G.P.A
+                                                    Calculator</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="mega-title">• Admin & Finance</h6>
+                                        <ul class="mega-list">
+                                            <li><a href="#" onclick="showFeatureDetails('fees')"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#featurePanel">Fee
+                                                    Breakdown</a></li>
+                                            <li><a href="#" onclick="showFeatureDetails('rms')"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#featurePanel">RMS
+                                                    Logging</a></li>
+                                            <li><a href="#" onclick="showFeatureDetails('hostel')"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#featurePanel">Hostel &
+                                                    Campus Leave</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <h6 class="mega-title">• Campus Info</h6>
+                                        <ul class="mega-list">
+                                            <li><a href="#" onclick="showFeatureDetails('notifications')"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#featurePanel">Smart
+                                                    Notifications</a></li>
+                                            <li><a href="#" onclick="showFeatureDetails('announcements')"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#featurePanel">Placement
+                                                    Announcements</a></li>
+                                            <li><a href="#" onclick="showFeatureDetails('library')"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#featurePanel">Library
+                                                    Books Locator</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- SMART CAMPUS MAP DROPDOWN -->
+                    <li class="nav-item dropdown position-static">
+                        <a class="nav-link dropdown-toggle" href="#" id="mapDropdown" data-bs-toggle="dropdown"
+                            aria-expanded="false">Campus Map</a>
+                        <ul class="dropdown-menu shadow-lg profile-dropdown mt-2">
+                            <li class="px-3 py-2 border-bottom header-border mb-1">
+                                <span class="d-block fw-bold" style="color: var(--text-main);">Quick Locate</span>
+                            </li>
+                            <li><a class="dropdown-item py-2 custom-dropdown-item" href="#"
+                                    onclick="scrollToAndHighlight('Block 32, Lovely Professional University')"><i
+                                        class="bi bi-geo-alt me-2"></i> Block 32</a></li>
+                            <li><a class="dropdown-item py-2 custom-dropdown-item" href="#"
+                                    onclick="scrollToAndHighlight('MAC Building, Lovely Professional University')"><i
+                                        class="bi bi-geo-alt me-2"></i> MAC Building</a></li>
+                            <li><a class="dropdown-item py-2 custom-dropdown-item" href="#"
+                                    onclick="scrollToAndHighlight('Block 14, Lovely Professional University')"><i
+                                        class="bi bi-geo-alt me-2"></i> Block 14</a></li>
+                            <li>
+                                <hr class="dropdown-divider header-border">
+                            </li>
+                            <li><a class="dropdown-item py-2 custom-dropdown-item" href="#"
+                                    onclick="scrollToAndHighlight('random')"><i class="bi bi-shuffle me-2"></i> Random
+                                    LPU Location</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <!-- Theme & Profile Area -->
+                <div class="d-flex align-items-center gap-3">
+                    <button id="theme-toggle" class="btn btn-sm theme-btn rounded-circle" aria-label="Toggle Theme">
+                        <i class="bi bi-moon-fill"></i>
+                    </button>
+
+                    <!-- Profile Dropdown -->
+                    <div class="dropdown">
+                        <div class="user-profile p-1 pe-3 rounded-pill d-flex align-items-center" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false" style="cursor: pointer;">
+                            <div class="avatar me-2 fs-6">S</div>
+                            <div class="lh-1 me-2">
+                                <span class="d-block fw-semibold fs-7 brand-text" id="headerName">Sarfraz</span>
+                            </div>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end profile-dropdown">
+                            <li class="border-bottom">
+                                <span class="d-block fw-bold" style="color: var(--text-main);"
+                                    id="dropdownName">Sarfraz</span>
+                                <small style="color: var(--text-muted);" id="dropdownBranch">B.Tech CSE - AI/ML</small>
+                            </li>
+                            <li><a class="dropdown-item d-flex align-items-center custom-dropdown-item" href="#"><i
+                                        class="bi bi-person me-2"></i> View Profile</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center custom-dropdown-item" href="#"><i
+                                        class="bi bi-gear me-2"></i> Account Settings</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center custom-dropdown-item" href="#"><i
+                                        class="bi bi-question-circle me-2"></i> Help & Support</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item d-flex align-items-center custom-dropdown-danger" href="#"
+                                    id="logoutBtn"><i class="bi bi-box-arrow-right me-2"></i> Log Out</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container main-content">
+
+        <!-- Enhanced Header -->
+        <div class="d-flex justify-content-between align-items-end pb-3 mb-4 border-bottom header-border">
+            <div>
+                <h1 class="h2 fw-bold mb-1">Welcome back, <span id="welcomeName">Sarfraz</span> 👋</h1>
+                <p class="mb-0" style="color: var(--text-muted);">Here is your academic overview for today.</p>
+            </div>
+            <span class="badge badge-soft-primary px-4 py-2 fs-6 rounded-pill shadow-sm mb-2"
+                id="semesterBadge">Semester 3</span>
+        </div>
+
+        <!-- Inline Alert -->
+        <div class="alert custom-alert alert-dismissible fade show mt-4 shadow-sm" role="alert">
+            <div class="d-flex align-items-center">
+                <i class="bi bi-qr-code-scan fs-3 me-3" style="color: var(--accent-primary);"></i>
+                <div>
+                    <strong class="d-block mb-1" style="color: var(--text-main);">Event Attendance Missing?</strong>
+                    <span style="color: var(--text-muted);">To check your event QR attendance, 👉 <a href="#"
+                            class="fw-bold alert-link text-decoration-underline"
+                            style="color: var(--accent-primary);">click here to view details</a>.</span>
+                </div>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <!-- Quick Stats Grid -->
+        <div class="row g-4 mt-2 mb-5">
+
+            <!-- 1. Attendance Card -->
+            <div class="col-md-4">
+                <div class="stat-card p-4 d-flex flex-column justify-content-between" style="height: 310px;">
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-1">
+                            <h6 class="text-muted mb-0">Current Attendance</h6>
+                            <i class="bi bi-graph-up-arrow accent-icon fs-5"></i>
+                        </div>
+                        <h3 class="mb-2 fw-bold"><span id="overallAttendance">0.0</span>% <span
+                                class="badge bg-success fs-7 ms-2 align-middle border-0"
+                                id="attendanceBadge">Good</span></h3>
+                    </div>
+
+                    <div class="attendance-scroll-container flex-grow-1 overflow-y-auto pe-1 mt-2">
+                        <small class="text-muted d-block fw-semibold mb-2 text-uppercase"
+                            style="font-size: 0.7rem; letter-spacing: 0.5px;">Subject Breakdown</small>
+                        <table class="table align-middle mb-0" style="font-size: 0.85rem;">
+                            <tbody id="attendanceBody">
+                                <!-- Dynamic subjects -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Class Schedule Tile -->
+            <div class="col-md-8">
+                <div class="stat-card p-4 d-flex flex-column justify-content-between" style="height: 310px;">
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="schedule-icon-badge">
+                                    <i class="bi bi-calendar-week"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">Class Schedule</h5>
+                            </div>
+
+                            <!-- Day Selector Pills -->
+                            <div class="d-flex gap-1 bg-body p-1 rounded-3 border header-border">
+                                <button class="day-pill active py-1.5 px-3 rounded-2 border-0 fs-6 fw-bold"
+                                    onclick="switchDay('mon', this)">Mon</button>
+                                <button class="day-pill py-1.5 px-3 rounded-2 border-0 fs-6 fw-bold"
+                                    onclick="switchDay('tue', this)">Tue</button>
+                                <button class="day-pill py-1.5 px-3 rounded-2 border-0 fs-6 fw-bold"
+                                    onclick="switchDay('wed', this)">Wed</button>
+                                <button class="day-pill py-1.5 px-3 rounded-2 border-0 fs-6 fw-bold"
+                                    onclick="switchDay('thu', this)">Thu</button>
+                                <button class="day-pill py-1.5 px-3 rounded-2 border-0 fs-6 fw-bold"
+                                    onclick="switchDay('fri', this)">Fri</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scrollable Classes Container -->
+                    <div class="attendance-scroll-container flex-grow-1 overflow-y-auto pe-2 mt-1"
+                        id="scheduleContainer">
+                        <!-- Today Schedule (Dynamic) -->
+                        <div class="day-schedule" id="mon-schedule">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Bottom Row: RMS Tickets Status (Left) & Student Services Grid (Right) -->
+            <div class="col-md-6">
+                <div class="stat-card p-4 d-flex flex-column justify-content-between h-100" style="min-height: 250px;">
+                    <div>
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div class="d-flex align-items-center gap-2">
+                                <div class="schedule-icon-badge">
+                                    <i class="bi bi-headset"></i>
+                                </div>
+                                <h5 class="fw-bold mb-0">RMS Tickets Status</h5>
+                            </div>
+                            <button class="btn btn-peach btn-sm px-3 py-1.5" onclick="showFeatureDetails('rms')"
+                                data-bs-toggle="offcanvas" data-bs-target="#featurePanel"
+                                style="border-radius: 8px; font-size: 0.8rem;">+ New Ticket</button>
+                        </div>
+
+                        <!-- Three Components: Active, In Progress, Closed -->
+                        <div class="row g-2">
+                            <div class="col-4">
+                                <div class="p-2.5 rounded-3 text-center border header-border"
+                                    style="background-color: rgba(255, 193, 7, 0.1);">
+                                    <small class="text-muted d-block fw-semibold"
+                                        style="font-size: 0.75rem;">Pending</small>
+                                    <span class="fw-bold fs-5 text-warning" id="rmsPending">0</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-2.5 rounded-3 text-center border header-border"
+                                    style="background-color: rgba(13, 202, 240, 0.1);">
+                                    <small class="text-muted d-block fw-semibold" style="font-size: 0.75rem;">In
+                                        Progress</small>
+                                    <span class="fw-bold fs-5 text-info" id="rmsProgress">0</span>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="p-2.5 rounded-3 text-center border header-border"
+                                    style="background-color: rgba(40, 167, 69, 0.1);">
+                                    <small class="text-muted d-block fw-semibold"
+                                        style="font-size: 0.75rem;">Closed</small>
+                                    <span class="fw-bold fs-5 text-success" id="rmsClosed">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center justify-content-between pt-2 border-top header-border mt-2">
+                        <small class="text-muted">Latest: Hostel Wi-Fi Repair</small>
+                        <a href="#" onclick="showFeatureDetails('rms')" data-bs-toggle="offcanvas"
+                            data-bs-target="#featurePanel" class="text-decoration-none fw-semibold fs-7"
+                            style="color: var(--accent-secondary);">View History ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="stat-card p-4 d-flex flex-column justify-content-between h-100" style="min-height: 250px;">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <h6 class="text-muted mb-0">Student Services & Tools</h6>
+                        <i class="bi bi-grid-fill accent-icon fs-5"></i>
+                    </div>
+
+                    <!-- Scrollable Grid Container holding all 10 components -->
+                    <div class="attendance-scroll-container overflow-y-auto pe-1" style="max-height: 170px;">
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <a href="#" onclick="showFeatureDetails('timetable')" data-bs-toggle="offcanvas"
+                                    data-bs-target="#featurePanel"
+                                    class="d-flex align-items-center p-2 rounded-3 text-decoration-none custom-shortcut-link fs-7 fw-semibold">
+                                    <i class="bi bi-calendar3 me-2 text-primary fs-5"></i> Timetable
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" onclick="showFeatureDetails('attendance')" data-bs-toggle="offcanvas"
+                                    data-bs-target="#featurePanel"
+                                    class="d-flex align-items-center p-2 rounded-3 text-decoration-none custom-shortcut-link fs-7 fw-semibold">
+                                    <i class="bi bi-person-check me-2 text-success fs-5"></i> Attendance
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" onclick="showFeatureDetails('exams')" data-bs-toggle="offcanvas"
+                                    data-bs-target="#featurePanel"
+                                    class="d-flex align-items-center p-2 rounded-3 text-decoration-none custom-shortcut-link fs-7 fw-semibold">
+                                    <i class="bi bi-pencil-square me-2 text-warning fs-5"></i> Exams
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" onclick="showFeatureDetails('fees')" data-bs-toggle="offcanvas"
+                                    data-bs-target="#featurePanel"
+                                    class="d-flex align-items-center p-2 rounded-3 text-decoration-none custom-shortcut-link fs-7 fw-semibold">
+                                    <i class="bi bi-wallet2 me-2 text-info fs-5"></i> Fees
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" onclick="showFeatureDetails('notifications')" data-bs-toggle="offcanvas"
+                                    data-bs-target="#featurePanel"
+                                    class="d-flex align-items-center p-2 rounded-3 text-decoration-none custom-shortcut-link fs-7 fw-semibold">
+                                    <i class="bi bi-bell me-2 text-danger fs-5"></i> Notifications
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" onclick="showFeatureDetails('announcements')" data-bs-toggle="offcanvas"
+                                    data-bs-target="#featurePanel"
+                                    class="d-flex align-items-center p-2 rounded-3 text-decoration-none custom-shortcut-link fs-7 fw-semibold">
+                                    <i class="bi bi-megaphone me-2 text-secondary fs-5"></i> Announcements
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" onclick="showFeatureDetails('hostel')" data-bs-toggle="offcanvas"
+                                    data-bs-target="#featurePanel"
+                                    class="d-flex align-items-center p-2 rounded-3 text-decoration-none custom-shortcut-link fs-7 fw-semibold">
+                                    <i class="bi bi-house-door me-2 text-primary fs-5"></i> Hostel Leave
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" onclick="showFeatureDetails('rms')" data-bs-toggle="offcanvas"
+                                    data-bs-target="#featurePanel"
+                                    class="d-flex align-items-center p-2 rounded-3 text-decoration-none custom-shortcut-link fs-7 fw-semibold">
+                                    <i class="bi bi-ticket-detailed me-2 text-success fs-5"></i> RMS
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" onclick="showFeatureDetails('library')" data-bs-toggle="offcanvas"
+                                    data-bs-target="#featurePanel"
+                                    class="d-flex align-items-center p-2 rounded-3 text-decoration-none custom-shortcut-link fs-7 fw-semibold">
+                                    <i class="bi bi-book me-2 text-warning fs-5"></i> Library Books
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#" onclick="showFeatureDetails('cgpa')" data-bs-toggle="offcanvas"
+                                    data-bs-target="#featurePanel"
+                                    class="d-flex align-items-center p-2 rounded-3 text-decoration-none custom-shortcut-link fs-7 fw-semibold">
+                                    <i class="bi bi-calculator me-2 text-danger fs-5"></i> CGPA Calculator
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live Google Maps Campus Navigator + 360° View Button -->
+        <div class="d-flex justify-content-between align-items-center mb-3">
+            <h4 class="mb-0 fw-bold" id="map-section">Campus Navigator <span
+                    class="badge bg-success fs-7 ms-2 align-middle border-0 rounded-pill">Live</span></h4>
+            <a href="https://iviewd.com/lpu2/" target="_blank"
+                class="btn btn-peach btn-sm px-4 py-2 rounded-pill fw-bold shadow-sm text-decoration-none d-flex align-items-center gap-2">
+                <i class="bi bi-badge-3d-fill"></i> Launch 360° View ↗
+            </a>
+        </div>
+        <div class="campus-map-container shadow-sm mb-5">
+            <iframe id="lpu-map"
+                src="https://www.google.com/maps?q=Lovely+Professional+University,+Phagwara&output=embed" width="100%"
+                height="450" style="border:0; border-radius: 12px;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </main>
+
+    <!-- Floating Chatbot Button -->
+    <a href="../chatbot_ui/index.html" class="chatbot-fab shadow-lg" aria-label="Open UMS Assistant">
+        <i class="bi bi-robot"></i>
+    </a>
+
+    <!-- Smart Feature Offcanvas Panel -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="featurePanel"
+        style="background-color: var(--bg-surface); border-left: 1px solid var(--border-color);">
+        <div class="offcanvas-header border-bottom header-border">
+            <h5 class="offcanvas-title fw-bold d-flex align-items-center" id="panelTitle"></h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <p class="text-muted mb-4" id="panelDesc"></p>
+            <h6 class="fw-bold mb-3">Try asking the bot:</h6>
+            <div id="panelPrompts" class="d-flex flex-column gap-2"></div>
+            <a href="../chatbot_ui/index.html" class="btn btn-peach w-100 mt-4 py-2" style="border-radius: 12px;">Launch
+                UMS
+                Assistant</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Custom JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

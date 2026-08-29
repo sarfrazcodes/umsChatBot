@@ -1,0 +1,504 @@
+/* ==========================================================================
+   UMS DASHBOARD STYLESHEET
+   Theme: UMS Login Palette & Sleek Dark Mode with Depth
+   ========================================================================== */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* --- 1. THEME VARIABLES --- */
+:root {
+    --bg-body: #fdfaf8;
+    --bg-surface: #ffffff;
+    --text-main: #1a0b02;
+    --text-muted: #6b5c51;
+
+    --border-color: #ebdcd1;
+    --accent-primary: #ff8833;
+    --accent-secondary: #ffb703;
+
+    --accent-light: rgba(255, 136, 51, 0.12);
+    --card-shadow: 0 10px 25px -5px rgba(255, 136, 51, 0.15);
+}
+
+[data-theme="dark"] {
+    --bg-body: #120700;
+    --bg-surface: #1e1107;
+    --text-main: #fdfaf8;
+    --text-muted: #bdaea3;
+    --border-color: #3b2416;
+
+    --accent-primary: #ffa366;
+    --accent-secondary: #ffc433;
+
+    --accent-light: rgba(255, 163, 102, 0.15);
+    --card-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
+
+
+/* --- 2. GLOBAL SETTINGS & DEPTH --- */
+body {
+    background-color: var(--bg-body);
+    background-image: radial-gradient(circle at 50% 0%, var(--accent-light) 0%, transparent 60%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    color: var(--text-main);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+}
+
+.accent-icon {
+    color: var(--accent-primary);
+}
+
+.brand-text {
+    color: var(--text-main);
+    font-weight: 700;
+}
+
+.header-border {
+    border-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="dark"] .header-border {
+    border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+[data-theme="dark"] .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+.main-content {
+    margin-top: 100px;
+}
+
+
+/* --- 3. TOP NAVBAR --- */
+.top-navbar {
+    top: 0;
+    background-color: #f8cc9c !important; /* Light Orange */
+    border-bottom: 1px solid var(--accent-secondary);
+    box-shadow: 0 4px 15px rgba(255, 106, 0, 0.15);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    z-index: 1030;
+}
+
+.top-navbar .navbar-brand span,
+.top-navbar .navbar-brand small,
+.top-navbar .nav-link,
+.top-navbar .bi-list {
+    color: #1a1a1a !important;
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 8px 16px !important;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    margin: 0 4px;
+}
+
+.top-navbar .nav-link:hover,
+.top-navbar .nav-link.active {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+    color: #1a1a1a !important;
+}
+
+.theme-btn {
+    background: rgba(255, 255, 255, 0.4) !important;
+    color: #1a1a1a !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.theme-btn:hover {
+    background: #ffffff !important;
+    transform: scale(1.1) rotate(15deg);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.theme-btn i {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.user-profile {
+    background-color: rgba(255, 255, 255, 0.4) !important;
+    border: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+
+.user-profile .brand-text {
+    color: #1a1a1a !important;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    background: #ffffff !important;
+    color: #1a1a1a !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-weight: bold;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+/* --- 4. 3D MEGA MENU STYLING --- */
+.position-static {
+    position: static !important;
+}
+
+.mega-menu {
+    width: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    border: none;
+    border-radius: 0 0 24px 24px;
+    background-color: var(--bg-surface);
+    border-top: 3px solid var(--accent-primary);
+    padding: 30px 0;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transform: perspective(1200px) rotateX(-15deg);
+    transform-origin: top center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.shadow-3d {
+    box-shadow:
+        0 30px 60px -12px rgba(0, 0, 0, 0.1),
+        0 18px 36px -18px rgba(0, 0, 0, 0.05),
+        inset 0 -5px 15px rgba(0, 0, 0, 0.01);
+}
+
+[data-theme="dark"] .shadow-3d {
+    box-shadow:
+        0 30px 60px -12px rgba(0, 0, 0, 0.8),
+        0 18px 36px -18px rgba(0, 0, 0, 0.6),
+        inset 0 -5px 15px rgba(255, 255, 255, 0.02);
+}
+
+.nav-item.dropdown:hover .mega-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: perspective(1200px) rotateX(0deg);
+}
+
+.mega-title {
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 12px;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+}
+
+.mega-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mega-list li {
+    margin-bottom: 6px;
+}
+
+.mega-list a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.mega-list a:hover {
+    color: var(--accent-secondary);
+    transform: translateX(8px) scale(1.02);
+}
+
+
+/* --- 5. DASHBOARD CARDS & INLINE ALERTS --- */
+.custom-alert {
+    background-color: var(--accent-light);
+    border: 1px solid var(--accent-primary);
+    border-radius: 12px;
+}
+
+[data-theme="dark"] .custom-alert {
+    background-color: rgba(248, 204, 156, 0.05);
+}
+
+.stat-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-top: 4px solid var(--accent-primary);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    border-color: var(--accent-primary);
+    box-shadow: 0 12px 25px rgba(248, 204, 156, 0.15);
+}
+
+.stat-card h3 {
+    font-size: 2.2rem;
+    letter-spacing: -1px;
+}
+
+.badge-soft-primary {
+    background-color: var(--accent-light);
+    color: var(--text-main);
+    border: 1px solid var(--accent-primary);
+}
+
+.bg-success {
+    background-color: #28a745 !important;
+    color: #ffffff;
+}
+
+
+/* --- 6. CAMPUS MAP --- */
+.campus-map-container {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s ease;
+}
+
+
+/* --- 7. FLOATING CHATBOT BUTTON (FAB) & OFFCANVAS --- */
+.chatbot-fab {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 65px;
+    height: 65px;
+    background-color: var(--accent-primary);
+    color: #1a1a1a;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    z-index: 1050;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+    text-decoration: none;
+}
+
+.chatbot-fab:hover {
+    transform: scale(1.1) translateY(-5px);
+    color: #1a1a1a;
+    box-shadow: 0 15px 25px rgba(248, 204, 156, 0.4) !important;
+}
+
+.offcanvas {
+    z-index: 1060 !important;
+}
+
+.offcanvas-backdrop {
+    z-index: 1055 !important;
+}
+
+
+/* --- 8. PRIMARY PEACH BUTTONS --- */
+.btn-peach {
+    background-color: var(--accent-primary) !important;
+    color: #1a1a1a !important;
+    font-weight: 600;
+    border: none;
+    transition: all 0.2s ease;
+}
+
+.btn-peach:hover {
+    background-color: var(--accent-secondary) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(248, 204, 156, 0.4);
+}
+
+
+/* --- 9. PROFILE DROPDOWN (GLASS EFFECT) --- */
+.profile-dropdown {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 16px !important;
+    min-width: 240px;
+    padding: 8px 0 !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+
+    margin-top: 14px !important;
+    right: 0 !important;
+    left: auto !important;
+}
+
+[data-theme="dark"] .profile-dropdown {
+    background-color: rgba(26, 26, 26, 0.8) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5) !important;
+}
+
+.profile-dropdown li.border-bottom {
+    padding: 8px 20px 12px 20px !important;
+    margin-bottom: 8px !important;
+    border-bottom-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="dark"] .profile-dropdown li.border-bottom {
+    border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.custom-dropdown-item {
+    color: var(--text-main);
+    font-weight: 500;
+    padding: 10px 20px !important;
+    transition: all 0.2s ease;
+}
+
+.custom-dropdown-item:hover,
+.custom-dropdown-item:focus {
+    background-color: rgba(248, 204, 156, 0.25);
+    color: #1a1a1a;
+}
+
+[data-theme="dark"] .custom-dropdown-item:hover,
+[data-theme="dark"] .custom-dropdown-item:focus {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--accent-secondary);
+}
+
+.custom-dropdown-danger {
+    color: #dc3545;
+    font-weight: 500;
+    padding: 10px 20px !important;
+    transition: all 0.2s ease;
+}
+
+.custom-dropdown-danger:hover,
+.custom-dropdown-danger:focus {
+    background-color: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+.dropdown-divider {
+    border-top-color: rgba(0, 0, 0, 0.05);
+    margin: 4px 0;
+}
+
+[data-theme="dark"] .dropdown-divider {
+    border-top-color: rgba(255, 255, 255, 0.05);
+}
+
+
+/* --- 10. SCHEDULE & ATTENDANCE TILES ENHANCEMENTS --- */
+.attendance-scroll-container {
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-primary) transparent;
+}
+
+.attendance-scroll-container::-webkit-scrollbar {
+    width: 4px;
+}
+
+.attendance-scroll-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.attendance-scroll-container::-webkit-scrollbar-thumb {
+    background-color: var(--accent-primary);
+    border-radius: 4px;
+}
+
+.schedule-icon-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 12px;
+    background: var(--accent-light);
+    color: var(--accent-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.schedule-time-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: var(--accent-light);
+    color: var(--text-main);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: 1px solid var(--accent-primary);
+}
+
+.day-pill {
+    background-color: transparent;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+}
+
+.day-pill:hover {
+    color: var(--text-main);
+    background-color: rgba(248, 204, 156, 0.15);
+}
+
+.day-pill.active {
+    background-color: var(--accent-primary) !important;
+    color: #1a1a1a !important;
+    box-shadow: 0 4px 10px rgba(248, 204, 156, 0.3);
+}
+
+.schedule-row {
+    transition: background-color 0.2s ease;
+    border-radius: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.schedule-row:hover {
+    background-color: rgba(248, 204, 156, 0.08);
+}
+
+/* Quick Shortcuts Widget styling */
+.custom-shortcut-link {
+    background-color: var(--bg-body);
+    border: 1px solid var(--border-color);
+    color: var(--text-main);
+    transition: all 0.2s ease;
+}
+
+.custom-shortcut-link:hover {
+    background-color: var(--accent-light);
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+    color: var(--text-main);
+}
+
+.table {
+    --bs-table-bg: transparent;
+    --bs-table-color: var(--text-main);
+    border-color: var(--border-color);
+}

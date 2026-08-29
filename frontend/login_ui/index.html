@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>University Management System - Login</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- =========================
+         TOP NAVIGATION
+    ========================== -->
+
+    <header>
+        <nav class="navbar px-4 py-3 w-100 position-relative z-index-2">
+
+            <div class="d-flex align-items-center gap-3">
+
+                <div class="logo-wrapper d-flex align-items-center justify-content-center">
+
+                    <img src="../assets/logo.png" alt="UMS Logo" class="logo-img" onerror="
+                            this.style.display='none';
+                            this.nextElementSibling.style.display='flex';
+                        ">
+
+                    <div class="logo-placeholder" style="display: none;">
+                        <i class="fas fa-university"></i>
+                    </div>
+
+                </div>
+
+                <span class="logo fw-bold fs-4">
+                    UMS
+                </span>
+
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- =========================
+         MAIN LOGIN SECTION
+    ========================== -->
+
+    <main
+        class="flex-grow-1 d-flex align-items-center justify-content-center position-relative w-100 px-3 py-4 overflow-hidden">
+
+        <!-- LOGIN CARD -->
+
+        <div class="login-card p-4 p-md-5 text-center">
+
+            <!-- Login Icon -->
+
+            <div class="login-icon-wrapper mx-auto mb-4">
+
+                <i class="fas fa-user-graduate"></i>
+
+            </div>
+
+
+            <!-- Heading -->
+
+            <h2 class="fw-bold mb-2">
+                Login
+            </h2>
+
+
+            <!-- Subtitle -->
+
+            <p class="text-muted mb-4 subtext">
+                Hey, enter your details to sign in to your account
+            </p>
+
+
+            <!-- LOGIN FORM -->
+
+            <form action="/login" method="POST" id="loginForm">
+
+                <!-- Registration ID -->
+
+                <div class="form-group mb-4">
+
+                    <input type="text" class="form-control custom-input" id="registration_id" name="registration_id"
+                        placeholder="Registration ID" required autocomplete="username">
+
+                </div>
+
+
+                <!-- Password -->
+
+                <div class="form-group mb-3 position-relative">
+
+                    <input type="password" class="form-control custom-input pe-5" id="password" name="password"
+                        placeholder="Password" required autocomplete="current-password">
+
+                    <span class="password-toggle fw-semibold" id="togglePassword" role="button" tabindex="0">
+                        Show
+                    </span>
+
+                </div>
+
+
+                <!-- Forgot Password -->
+
+                <div class="d-flex justify-content-start mb-5">
+
+                    <a href="#" class="text-decoration-none text-muted forgot-link fs-7">
+                        Forgot Password?
+                    </a>
+
+                </div>
+
+
+                <!-- Sign In Button -->
+
+                <button type="submit" class="btn btn-primary-custom w-100 fw-bold py-3 mb-2">
+                    Sign in
+                </button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="text-center py-3 fs-7 text-muted position-relative z-index-2">
+        Copyright &copy; 2026 UMS | Privacy Policy
+    </footer>
+
+
+    <!-- Custom JavaScript -->
+
+    <script src="./script.js"></script>
+
+</body>
+
+</html>

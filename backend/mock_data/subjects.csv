@@ -1,0 +1,5 @@
+subject_code,name,credits,semester,syllabus,course_outcomes
+CSE301,Database Management Systems,4,5,"Intro to DB, ER Models, SQL...",Understand relational models.
+CSE302,Operating Systems,4,5,"Processes, Threads, Memory...",Understand OS architecture.
+CSE303,Computer Networks,3,5,"OSI, TCP/IP, Routing...",Understand network layers.
+CSE304,Artificial Intelligence,4,5,"Search, ML, NLP...",Build basic AI agents.

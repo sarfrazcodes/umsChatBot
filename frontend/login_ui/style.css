@@ -1,0 +1,572 @@
+/* =====================================================
+   ROOT VARIABLES
+===================================================== */
+
+:root {
+    --bg-color: #1a0b02;
+    --card-bg: rgba(26, 11, 2, 0.75);
+    --btn-peach: #ff8833;
+    --btn-peach-hover: #ff9933;
+    --text-main: #fdfaf8;
+    --text-muted: #bdaea3;
+    --border-color: rgba(255, 136, 51, 0.2);
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+    margin: 0;
+
+    background-color: var(--bg-color);
+
+    /*
+        IMPORTANT:
+
+        style.css is inside:
+        /login/
+
+        background.png is inside:
+        /assets/
+
+        Therefore:
+        ../assets/background.png
+    */
+    background-image: url("/frontend/assets/background.png");
+
+    background-size: cover;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    background-attachment: fixed;
+
+    color: var(--text-main);
+
+    min-height: 100vh;
+}
+
+
+/* =====================================================
+   Z-INDEX
+===================================================== */
+
+.z-index-2 {
+    z-index: 2;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.logo {
+    letter-spacing: -0.5px;
+
+    color: #111111;
+}
+
+.logo-wrapper {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+}
+
+.logo-placeholder {
+    width: 36px;
+    height: 36px;
+
+    border-radius: 10px;
+
+    background-color: rgba(0, 0, 0, 0.05);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #111111;
+}
+
+
+/* =====================================================
+   MAIN AREA
+===================================================== */
+
+main {
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =====================================================
+   LOGIN CARD
+   GLASS / TRANSPARENT EFFECT
+===================================================== */
+
+.login-card {
+
+    /*
+        THIS MAKES THE CARD EXTREMELY TRANSPARENT
+    */
+    background: rgba(255, 255, 255, 0.02);
+
+    /*
+        GLASS BLUR
+    */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+
+    /*
+        GLASS BORDER
+    */
+
+    border: 1px solid rgba(255, 255, 255, 0.7);
+
+
+    /*
+        ROUNDED CORNERS
+    */
+
+    border-radius: 22px;
+
+
+    /*
+        SIZE
+    */
+
+    width: 100%;
+
+    max-width: 460px;
+
+    min-height: 520px;
+
+
+    /*
+        CONTENT ALIGNMENT
+    */
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+
+    /*
+        SHADOW
+    */
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.08);
+
+
+    /*
+        PEACH TOP BORDER
+    */
+
+    border-top: 6px solid var(--btn-peach);
+
+
+    /*
+        LAYER
+    */
+
+    z-index: 10;
+
+    /* 
+        ANIMATIONS & TRANSITIONS
+    */
+    opacity: 0;
+    transform: translateY(30px);
+    animation: slideUpFadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    transition: box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/*
+    HOVER EFFECT FOR THE CARD
+*/
+.login-card:hover {
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+@keyframes slideUpFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   LOGIN ICON
+===================================================== */
+
+.login-icon-wrapper {
+
+    width: 64px;
+
+    height: 64px;
+
+    background: rgba(248, 204, 156, 0.35);
+
+    color: #d19455;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 1.5rem;
+
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    /* FLOATING ANIMATION */
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+
+/* =====================================================
+   TEXT
+===================================================== */
+
+.subtext {
+    font-size: 0.9rem;
+
+    color: #555555 !important;
+}
+
+.fs-7 {
+    font-size: 0.85rem;
+}
+
+
+/* =====================================================
+   INPUT FIELDS
+===================================================== */
+
+.custom-input {
+
+    /*
+        TRANSPARENT INPUT
+    */
+
+    background: rgba(255, 255, 255, 0.35);
+
+
+    /*
+        BORDER
+    */
+
+    border: 1px solid rgba(0, 0, 0, 0.12);
+
+
+    /*
+        ROUNDED
+    */
+
+    border-radius: 12px;
+
+
+    /*
+        SIZE
+    */
+
+    padding: 16px 20px;
+
+    font-size: 1rem;
+
+
+    /*
+        TEXT
+    */
+
+    color: #1a0b02;
+
+
+    /*
+        SMOOTH EFFECT
+    */
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background 0.2s ease;
+}
+
+
+/*
+    INPUT PLACEHOLDER
+*/
+
+.custom-input::placeholder {
+    color: #555555;
+
+    opacity: 0.9;
+}
+
+
+/*
+    INPUT FOCUS
+*/
+
+.custom-input:focus {
+
+    background: rgba(255, 255, 255, 0.5);
+
+    border-color: rgba(0, 0, 0, 0.25);
+
+    box-shadow: none;
+
+    color: var(--text-main);
+}
+
+
+/*
+    REMOVE BOOTSTRAP WHITE BACKGROUND
+*/
+
+.custom-input:focus,
+.custom-input:hover {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* 
+    STAGGERED ANIMATIONS FOR FORM GROUPS
+*/
+.form-group,
+.d-flex.justify-content-start,
+.btn-primary-custom {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: slideUpFadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.form-group:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.form-group:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.d-flex.justify-content-start {
+    animation-delay: 0.5s;
+}
+
+.btn-primary-custom {
+    animation-delay: 0.6s;
+}
+
+
+/* =====================================================
+   PASSWORD SHOW / HIDE
+===================================================== */
+
+.password-toggle {
+
+    position: absolute;
+
+    right: 16px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    cursor: pointer;
+
+    font-size: 0.85rem;
+
+    color: var(--text-main);
+
+    user-select: none;
+
+    transition: opacity 0.2s ease;
+}
+
+.password-toggle:hover {
+    opacity: 0.65;
+}
+
+
+/* =====================================================
+   FORGOT PASSWORD
+===================================================== */
+
+.forgot-link {
+
+    color: #555555 !important;
+
+    transition:
+        color 0.15s ease,
+        opacity 0.15s ease;
+}
+
+.forgot-link:hover {
+
+    color: var(--text-main) !important;
+
+    text-decoration: underline !important;
+}
+
+
+/* =====================================================
+   SIGN IN BUTTON
+===================================================== */
+
+.btn-primary-custom {
+
+    background-color: var(--btn-peach);
+
+    color: var(--text-main);
+
+    border: none;
+
+    border-radius: 12px;
+
+    font-size: 1.05rem;
+
+    transition:
+        transform 0.15s ease,
+        background-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/*
+    BUTTON HOVER
+*/
+
+.btn-primary-custom:hover {
+
+    background-color: var(--btn-peach-hover);
+
+    color: var(--text-main);
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/*
+    BUTTON ACTIVE
+*/
+
+.btn-primary-custom:active {
+
+    transform: translateY(0);
+
+    box-shadow: none;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    color: #666666 !important;
+
+    font-size: 0.85rem;
+}
+
+
+/* =====================================================
+   MOBILE RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    body {
+
+        background-position: center center;
+
+        background-attachment: scroll;
+    }
+
+
+    .login-card {
+
+        max-width: 420px;
+
+        min-height: auto;
+
+        padding: 32px 24px !important;
+
+        margin: 10px;
+    }
+
+
+    .logo {
+
+        font-size: 1.3rem !important;
+    }
+}
+
+
+/* =====================================================
+   SMALL MOBILE
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .login-card {
+
+        border-radius: 18px;
+
+        padding: 28px 20px !important;
+    }
+
+
+    .login-icon-wrapper {
+
+        width: 58px;
+
+        height: 58px;
+
+        font-size: 1.3rem;
+    }
+}

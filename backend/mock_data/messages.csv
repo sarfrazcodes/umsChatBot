@@ -1,0 +1,4 @@
+message_id,category,title,content,tags,department,priority,published_at
+1,Placement,TCS Placement Drive,TCS is visiting for SDE role on 28 Aug...,"placement, tcs, sde",Placement Cell,High,2026-08-25 10:00:00
+2,Placement,Infosys Recruitment Drive,Infosys drive on 26 Aug...,"placement, infosys",Placement Cell,Normal,2026-08-20 10:00:00
+3,Exam,Mid-Term Schedule,Mid terms starting from 15 Sep...,"exam, mid-term, datesheet",Examination,High,2026-08-27 10:00:00
