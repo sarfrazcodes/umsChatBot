@@ -1,5 +1,10 @@
 subject_code,name,credits,semester,syllabus,course_outcomes
-CSE301,Database Management Systems,4,5,"Intro to DB, ER Models, SQL...",Understand relational models.
-CSE302,Operating Systems,4,5,"Processes, Threads, Memory...",Understand OS architecture.
-CSE303,Computer Networks,3,5,"OSI, TCP/IP, Routing...",Understand network layers.
-CSE304,Artificial Intelligence,4,5,"Search, ML, NLP...",Build basic AI agents.
+CSE316,Operating Systems,4,3,"Processes, Threads, Memory...",Understand OS architecture.
+INT221,Full Stack Web Dev,4,3,"HTML, CSS, JS, React...",Build full stack web apps.
+CSE320,AI & Machine Learning,4,3,"Search, ML, NLP...",Build basic AI agents.
+MTH302,Engineering Mathematics,4,3,"Calculus, Algebra...",Solve engineering mathematical problems.
+PEL136,English Advance,2,3,Advanced English communication skills...,Enhance verbal and written communication.
+CSE205,Data Structures and Algorithms,4,3,"Arrays, Trees, Graphs, Sorting...",Implement efficient algorithms.
+INT205,Object Oriented Programming,4,3,"Classes, Inheritance, Polymorphism...",Master OOP concepts.
+CSE276,AI & ML Foundation,3,3,"Intro to AI, logic, simple regression...",Understand foundations of AI.
+CSE306,Computer Networks,4,3,"OSI model, TCP/IP, Routing protocols...",Understand network layers and protocols.

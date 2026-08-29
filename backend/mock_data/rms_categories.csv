@@ -1,1 +1,6 @@
 id,name,parent_id
+1,IT Support,
+2,Hostel Maintenance,
+3,Wi-Fi Issue,1
+4,Plumbing,2
+5,Electrical,2

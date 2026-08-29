@@ -1,1 +1,4 @@
 id,company,role,min_cgpa,min_tgpa,allowed_branches,deadline
+1,Amazon,SDE I,8.0,7.5,"CSE,ECE",2026-10-15
+2,TCS,System Engineer,6.0,6.0,"CSE,ECE,ME,CE",2026-09-20
+3,Google,Software Engineer,8.5,8.0,CSE,2026-11-01

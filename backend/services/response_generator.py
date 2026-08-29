@@ -8,6 +8,9 @@ def generate_response(intent, data, query_type=None):
             return f"I am not entirely sure what you mean. Did you mean something about {alts[0]} or {alts[1]}?"
         return "I'm not sure I understand. Could you please rephrase?"
 
+    if intent == "GREETING":
+        return data.get("message", "Hello Verto!")
+
     if intent == "ATTENDANCE":
         if "message" in data:
             return data["message"]
@@ -17,13 +20,28 @@ def generate_response(intent, data, query_type=None):
     if intent == "ATTENDANCE_PROJECTION":
         if "error" in data:
             return data["error"]
-        curr = data["current_percentage"]
-        proj = data["projected_percentage"]
-        drop = data["percentage_drop"]
-        msg = f"If you miss those classes, your attendance will drop from {curr}% to {proj}% (a drop of {drop}%)."
-        if data["warning"]:
-            msg += " WARNING: This will put you below the 75% threshold!"
-        return msg
+            
+        if data.get("is_subject_projection"):
+            s_name = data["subject"]
+            s_cur = data["current_subject_pct"]
+            s_proj = data["projected_subject_pct"]
+            s_drop = data["subject_drop"]
+            o_cur = data["current_overall_pct"]
+            o_proj = data["projected_overall_pct"]
+            o_drop = data["overall_drop"]
+            
+            msg = f"If you miss that {s_name} class, your attendance in {s_name} will drop from {s_cur}% to {s_proj}% (a {s_drop}% drop), and your OVERALL attendance will drop from {o_cur}% to {o_proj}%."
+            if data["warning"]:
+                msg += " WARNING: This will put you below the 75% threshold!"
+            return msg
+        else:
+            curr = data["current_percentage"]
+            proj = data["projected_percentage"]
+            drop = data["percentage_drop"]
+            msg = f"If you miss those classes, your overall attendance will drop from {curr}% to {proj}% (a drop of {drop}%)."
+            if data["warning"]:
+                msg += " WARNING: This will put you below the 75% threshold!"
+            return msg
 
     if intent == "TIMETABLE":
         if "message" in data:

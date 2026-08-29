@@ -1,1 +1,3 @@
 id,student_id,type,from_date,to_date,reason,status
+1,1,Hostel Leave,2026-08-20,2026-08-22,Going home,Approved
+2,1,Campus Pass,2026-09-01,2026-09-01,Medical checkup,Pending

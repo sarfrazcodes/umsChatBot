@@ -1,1 +1,22 @@
 id,student_id,subject_code,faculty_id,day,start_time,end_time,room,section
+1,1,CSE316,1,Monday,09:00:00,10:00:00,Block 14 - Room 302,K22
+2,1,INT221,2,Monday,10:00:00,11:00:00,Block 32 - Lab 4,K22
+3,1,CSE320,3,Monday,11:00:00,12:00:00,Block 34 - Room 201,K22
+11,1,PEL136,4,Monday,13:00:00,14:00:00,Block 33 - Room 102,K22
+12,1,CSE205,1,Monday,14:00:00,15:00:00,Block 34 - Room 204,K22
+4,1,MTH302,4,Tuesday,09:00:00,10:00:00,Block 10 - Room 110,K22
+13,1,INT205,2,Tuesday,10:00:00,11:00:00,Block 32 - Room 201,K22
+14,1,CSE276,3,Tuesday,11:00:00,12:00:00,Block 14 - Room 102,K22
+15,1,CSE306,1,Tuesday,13:00:00,14:00:00,Block 34 - Room 205,K22
+5,1,CSE316,1,Wednesday,11:00:00,12:00:00,Block 14 - Lab 2,K22
+16,1,PEL136,4,Wednesday,13:00:00,14:00:00,Block 33 - Room 102,K22
+17,1,CSE205,1,Wednesday,14:00:00,15:00:00,Block 34 - Lab 204,K22
+6,1,CSE320,3,Thursday,09:00:00,10:00:00,Block 34 - Room 201,K22
+18,1,INT205,2,Thursday,10:00:00,11:00:00,Block 32 - Lab 201,K22
+19,1,CSE276,3,Thursday,11:00:00,12:00:00,Block 14 - Room 102,K22
+7,1,INT221,2,Friday,10:00:00,11:00:00,Block 32 - Lab 4,K22
+20,1,CSE306,1,Friday,13:00:00,14:00:00,Block 34 - Room 205,K22
+21,1,MTH302,4,Friday,14:00:00,15:00:00,Block 10 - Room 110,K22
+8,1,CSE316,1,Saturday,09:00:00,10:00:00,Block 14 - Room 302,K22
+9,1,INT221,2,Saturday,10:00:00,11:00:00,Block 32 - Lab 4,K22
+10,1,CSE320,3,Saturday,11:00:00,12:00:00,Block 34 - Room 201,K22

@@ -1,77 +1,76 @@
 // DOM Elements
-const chatApp = document.getElementById('chatApp'),
-  sidebar = document.getElementById('sidebar'),
-  menuToggleBtn = document.getElementById('menuToggleBtn'),
-  toggleModeBtn = document.getElementById('toggleModeBtn'),
+const chatApp = document.getElementById('full-page'),
   closeBtn = document.getElementById('closeBtn'),
-  toggleIcon = document.getElementById('toggleIcon'),
-  toggleText = document.getElementById('toggleText'),
-  clearBtn = document.getElementById('clearBtn'),
+  toggleModeBtn = document.getElementById('toggle-float-btn'),
+  toggleIcon = toggleModeBtn.querySelector('i'),
   newChatBtn = document.getElementById('newChatBtn'),
-  resetViewBtn = document.getElementById('resetViewBtn'),
-  chatTitle = document.getElementById('chatTitle'),
-  emptyState = document.getElementById('emptyState'),
-  messageList = document.getElementById('messageList'),
-  chatScroll = document.getElementById('chatScroll'),
-  composerForm = document.getElementById('composerForm'),
-  draftInput = document.getElementById('draftInput'),
-  sendBtn = document.getElementById('sendBtn'),
-  recentList = document.getElementById('recentList'),
-  quickGrid = document.getElementById('quickGrid');
+  emptyState = document.getElementById('empty-state'),
+  messagesEl = document.getElementById('messages'),
+  textarea = document.getElementById('chat-textarea'),
+  sendBtn = document.getElementById('send-btn'),
+  recentList = document.getElementById('chat-history'),
+  quickGrid = document.getElementById('quick-prompts');
 
-// Data Collections (Tuned with Warm Amber & Earth Tones)
-const quickActions = [
-  { label: "Class timetable", prompt: "Show my class timetable for today", icon: "bi-calendar3", color: "#c88132,rgba(200,129,50,.14)" },
-  { label: "Attendance", prompt: "What is my attendance status?", icon: "bi-clipboard-check", color: "#25855a,rgba(37,133,90,.14)" },
-  { label: "Fee clearance", prompt: "Check my pending fees and receipts", icon: "bi-wallet2", color: "#3b8ea5,rgba(59,142,165,.14)" },
-  { label: "Exam date sheet", prompt: "Show my upcoming exam dates", icon: "bi-file-earmark-text", color: "#8c5b30,rgba(140,91,48,.14)" }
+// Data Collections
+const chatHistoryData = [
+  {icon:"fa-regular fa-clock",title:"Attendance requirem...",when:"Today"},
+  {icon:"fa-regular fa-circle-question",title:"Find a campus service",when:"Yesterday"},
+  {icon:"fa-regular fa-file-lines",title:"Semester exam dates",when:"28 Aug"},
 ];
-
-const recentChats = [
-  { title: "Fall 2026 Timetable", meta: "Today · 10:42 AM", prompt: "Show my class timetable for today" },
-  { title: "Attendance Eligibility", meta: "Yesterday · 4:18 PM", prompt: "What is my attendance status?" },
-  { title: "Semester Fee Receipt", meta: "Aug 26 · 11:05 AM", prompt: "Check my pending fees and receipts" }
+const quickPromptsData = [
+  {icon:"fa-regular fa-clock",label:"Attendance",q:"How is my attendance?"},
+  {icon:"fa-regular fa-calendar",label:"Timetable",q:"Show my next class"},
+  {icon:"fa-regular fa-file-lines",label:"Exams",q:"When are my exams?"},
+  {icon:"fa-regular fa-envelope",label:"Fees",q:"Check my fee status"},
 ];
 
 let isThinking = false;
 
-// 1. Render Recent Chats (Directly at top of sidebar)
+// 1. Render Recent Chats
 function renderRecentChats() {
-  recentList.innerHTML = '';
-  recentChats.forEach(c => {
-    const btn = document.createElement('button');
-    btn.className = 'recent-chat';
-    btn.innerHTML = `<i class="bi bi-chat-left-text"></i><span><strong>${c.title}</strong><small>${c.meta}</small></span>`;
-    btn.onclick = () => {
-      document.querySelectorAll('.recent-chat').forEach(x => x.classList.remove('active'));
-      btn.classList.add('active');
-      sendPrompt(c.prompt);
-      sidebar.classList.remove('open');
-    };
-    recentList.appendChild(btn);
-  });
+  recentList.innerHTML = chatHistoryData.map(h=>`
+    <button class="hist-item d-flex align-items-center gap-2">
+      <span class="hist-icon"><i class="${h.icon}"></i></span>
+      <span class="flex-grow-1 text-start"><div class="fw-semibold small">${h.title}</div><div class="text-muted-sm">${h.when}</div></span>
+      <i class="fa-solid fa-chevron-right text-muted small"></i>
+    </button>`).join("");
 }
 
-// 2. Render Quick Suggestion Cards (2x2 Grid)
-function renderQuickGrid() {
-  quickGrid.innerHTML = '';
-  quickActions.forEach(a => {
-    const [fg, bg] = a.color.split(',');
-    const btn = document.createElement('button');
-    btn.className = 'quick-action';
-    btn.innerHTML = `
-      <span class="qicon" style="color:${fg};background:${bg}"><i class="bi ${a.icon}"></i></span>
-      <span><strong>${a.label}</strong></span>
-      <i class="bi bi-chevron-right ms-auto text-muted" style="font-size:11px"></i>
-    `;
-    btn.onclick = () => sendPrompt(a.prompt);
-    quickGrid.appendChild(btn);
-  });
+// 2. Render Quick Prompts
+function renderQuickPrompts() {
+  quickGrid.innerHTML = quickPromptsData.map(p=>`
+    <button class="prompt-card d-flex align-items-center gap-2">
+      <span class="hist-icon"><i class="${p.icon}"></i></span>
+      <span class="flex-grow-1 text-start"><div class="text-muted-sm">${p.label}</div><div class="fw-semibold small">${p.q}</div></span>
+      <i class="fa-solid fa-chevron-right text-muted small"></i>
+    </button>`).join("");
 }
 
-// 3. Formatting & Responses
-function formatTime() {
-  return new Date().toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+// Clicking a quick prompt sends it straight away
+quickGrid.addEventListener("click", e=>{
+  const card = e.target.closest(".prompt-card");
+  if(!card) return;
+  sendMessage(card.querySelector(".fw-semibold").textContent);
+});
+
+// 3. Chat Logic
+function escapeHtml(str){
+  return str.replace(/[&<>"']/g, m => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+}
+
+function addMessage(text, from){
+  const row = document.createElement("div");
+  row.className = `msg-row ${from}`;
+  
+  let formattedText = escapeHtml(text);
+  // Optional: convert **bold** to <strong>bold</strong>
+  formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  formattedText = formattedText.replace(/\n/g, '<br>');
+  
+  row.innerHTML = `<div class="msg">${formattedText}</div>`;
+  messagesEl.appendChild(row);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
+  return row;
 }
 
 async function fetchResponse(prompt) {
@@ -105,91 +104,58 @@ async function fetchResponse(prompt) {
   }
 }
 
-// 4. Message Bubble Handlers
-function addMessage(role, text) {
-  const row = document.createElement('div');
-  row.className = `msg-row ${role}`;
-  row.innerHTML = `
-    <div class="avatar ${role}">
-      ${role === 'assistant' ? '<i class="bi bi-mortarboard-fill"></i>' : 'AM'}
-    </div>
-    <div class="msg-body">
-      <div class="msg-meta">${role === 'assistant' ? 'UMS Assistant' : 'You'} · ${formatTime()}</div>
-      <p>${text}</p>
-    </div>
-  `;
-  messageList.appendChild(row);
-  chatScroll.scrollTop = chatScroll.scrollHeight;
-}
+async function sendMessage(text) {
+  text = (text || "").trim();
+  if(!text || isThinking) return;
 
-async function sendPrompt(raw) {
-  const text = raw.trim();
-  if (!text || isThinking) return;
+  emptyState.classList.add("d-none");
+  messagesEl.classList.remove("d-none");
 
-  emptyState.style.display = 'none';
-  messageList.style.display = 'flex';
-  chatTitle.textContent = 'Academic support';
-
-  addMessage('user', text);
-  draftInput.value = '';
+  addMessage(text, "user");
+  textarea.value = "";
   sendBtn.disabled = true;
   isThinking = true;
 
-  // Render thinking indicator
-  const thinkRow = document.createElement('div');
-  thinkRow.className = 'msg-row assistant';
-  thinkRow.id = 'thinkingRow';
-  thinkRow.innerHTML = `
-    <div class="avatar assistant"><i class="bi bi-mortarboard-fill"></i></div>
-    <div class="msg-body">
-      <div class="msg-meta">UMS Assistant · thinking</div>
-      <div class="thinking"><i></i><i></i><i></i></div>
-    </div>
-  `;
-  messageList.appendChild(thinkRow);
-  chatScroll.scrollTop = chatScroll.scrollHeight;
+  const typingRow = document.createElement("div");
+  typingRow.className = "msg-row bot typing";
+  typingRow.innerHTML = `<div class="msg"><span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span></div>`;
+  messagesEl.appendChild(typingRow);
+  messagesEl.scrollTop = messagesEl.scrollHeight;
 
   const responseText = await fetchResponse(text);
 
-  thinkRow.remove();
-  addMessage('assistant', responseText);
+  typingRow.remove();
+  addMessage(responseText, "bot");
   isThinking = false;
-  sendBtn.disabled = !draftInput.value.trim();
-  draftInput.focus();
+  sendBtn.disabled = !textarea.value.trim();
+  textarea.focus();
 }
 
-// 5. Reset Conversation
+// Reset Conversation
 function resetChat() {
-  messageList.innerHTML = '';
-  messageList.style.display = 'none';
-  emptyState.style.display = 'block';
-  chatTitle.textContent = 'Your academic command center';
-  draftInput.value = '';
+  messagesEl.innerHTML = '';
+  messagesEl.classList.add('d-none');
+  emptyState.classList.remove('d-none');
+  textarea.value = '';
   sendBtn.disabled = true;
-  sidebar.classList.remove('open');
-  document.querySelectorAll('.recent-chat').forEach(x => x.classList.remove('active'));
+  document.querySelectorAll('.hist-item').forEach(x => x.classList.remove('active'));
 }
 
-// 6. Event Listeners
-draftInput.addEventListener('input', () => {
-  sendBtn.disabled = !draftInput.value.trim() || isThinking;
+// Event Listeners
+textarea.addEventListener('input', () => {
+  sendBtn.disabled = !textarea.value.trim() || isThinking;
 });
 
-composerForm.addEventListener('submit', e => {
-  e.preventDefault();
-  sendPrompt(draftInput.value);
+sendBtn.addEventListener("click", ()=> sendMessage(textarea.value));
+textarea.addEventListener("keydown", e=>{
+  if(e.key === "Enter" && !e.shiftKey){
+    e.preventDefault();
+    sendMessage(textarea.value);
+  }
 });
 
-newChatBtn.addEventListener('click', resetChat);
-clearBtn.addEventListener('click', resetChat);
-resetViewBtn?.addEventListener('click', resetChat);
+newChatBtn?.addEventListener('click', resetChat);
 
-// Mobile Sidebar Toggle
-menuToggleBtn?.addEventListener('click', () => {
-  sidebar.classList.toggle('open');
-});
-
-// Close Assistant
 closeBtn?.addEventListener('click', () => {
   window.location.href = '../dashboard_ui/index.html';
 });
@@ -199,8 +165,14 @@ toggleModeBtn.addEventListener('click', () => {
   const isFloating = chatApp.classList.toggle('mode-floating');
   chatApp.classList.toggle('mode-fullscreen', !isFloating);
 
-  toggleIcon.className = isFloating ? 'bi bi-arrows-angle-expand' : 'bi bi-arrows-angle-contract';
-  toggleText.textContent = isFloating ? 'Expand Window' : 'Float Window';
+  // Update toggle icon
+  if (isFloating) {
+    toggleIcon.classList.remove('fa-down-left-and-up-right-to-center');
+    toggleIcon.classList.add('fa-up-right-and-down-left-from-center');
+  } else {
+    toggleIcon.classList.remove('fa-up-right-and-down-left-from-center');
+    toggleIcon.classList.add('fa-down-left-and-up-right-to-center');
+  }
 
   if (!isFloating) {
     chatApp.style.transform = '';
@@ -209,24 +181,16 @@ toggleModeBtn.addEventListener('click', () => {
   }
 
   setTimeout(() => {
-    chatScroll.scrollTop = chatScroll.scrollHeight;
+    messagesEl.scrollTop = messagesEl.scrollHeight;
   }, 100);
-});
-
-// Keyboard Shortcut: Cmd/Ctrl + K for New Conversation
-document.addEventListener('keydown', e => {
-  if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
-    e.preventDefault();
-    resetChat();
-  }
 });
 
 // Initialize on Load
 renderRecentChats();
-renderQuickGrid();
+renderQuickPrompts();
 
 // --- FLOATING WINDOW DRAG LOGIC ---
-const topbar = document.querySelector('.topbar');
+const topbar = document.querySelector('.ums-header');
 let isDragging = false;
 let currentX;
 let currentY;
@@ -242,7 +206,7 @@ document.addEventListener('mousemove', drag);
 function dragStart(e) {
   if (!chatApp.classList.contains('mode-floating')) return;
   // Ignore drag if clicking on a button inside the topbar
-  if (e.target.closest('button')) return;
+  if (e.target.closest('button') || e.target.closest('a')) return;
 
   initialX = e.clientX - xOffset;
   initialY = e.clientY - yOffset;

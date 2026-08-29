@@ -37,12 +37,34 @@ def handle_user_query(query: str, registration_number: str) -> str:
     data = {}
     
     try:
-        if intent == "ATTENDANCE":
+        if intent == "GREETING":
+            data = {"message": "Hello Verto! How can I assist you with your academic inquiries today?"}
+            
+        elif intent == "ATTENDANCE":
             data = get_overall_attendance(registration_number)
             
         elif intent == "ATTENDANCE_PROJECTION":
             absent_days = int(entities.get("count", 1))
-            data = run_absence_projection(registration_number, absent_days)
+            subject = entities.get("subject", query) # Fallback to full query
+            
+            # Check if there is a specific subject mentioned in the query
+            from services.attendance_service import run_subject_absence_projection
+            
+            # Smart Context: If the user is referring to "next class" or "that class", dynamically fetch it!
+            query_lower = query.lower()
+            if "next class" in query_lower or "that class" in query_lower or "this class" in query_lower:
+                nc_data = get_next_class(registration_number)
+                if "next_class" in nc_data:
+                    subject = nc_data["next_class"]["subject"]
+            
+            # Simple heuristic: if query contains words like 'class' or specific subject keywords alongside projection keywords
+            # For hackathon, we can try subject projection first, and if it fails to find subject, fallback to overall.
+            res = run_subject_absence_projection(registration_number, subject, absent_days)
+            if "error" in res and "Could not find a subject matching" in res["error"]:
+                data = run_absence_projection(registration_number, absent_days)
+            else:
+                data = res
+                data["is_subject_projection"] = True
             
         elif intent == "TIMETABLE":
             # Very basic extraction, real impl would map entities better

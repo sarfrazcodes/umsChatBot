@@ -93,12 +93,11 @@ document.addEventListener("DOMContentLoaded", () => {
     if (demoLoginBtn) {
         demoLoginBtn.addEventListener("click", () => {
             // Auto-fill credentials
-            if (registrationInput) registrationInput.value = "DEMO-USER";
-            if (passwordInput) passwordInput.value = "demo123";
+            if (registrationInput) registrationInput.value = "12505649";
+            if (passwordInput) passwordInput.value = "password123";
 
-            // Directly log in without backend validation
-            localStorage.setItem('token', 'demo-token-12345');
-            window.location.href = '../dashboard_ui/index.html';
+            // Trigger the form submit to get a real JWT from the backend
+            if (loginForm) loginForm.dispatchEvent(new Event('submit', { cancelable: true, bubbles: true }));
         });
     }
 
