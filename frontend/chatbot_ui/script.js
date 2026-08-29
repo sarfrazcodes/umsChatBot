@@ -73,6 +73,62 @@ function addMessage(text, from){
   return row;
 }
 
+// Typing Effect Function for Bot Responses
+async function addTypingMessage(text, from) {
+  return new Promise(resolve => {
+    const row = document.createElement("div");
+    row.className = `msg-row ${from}`;
+    const msgBubble = document.createElement("div");
+    msgBubble.className = "msg";
+    row.appendChild(msgBubble);
+    messagesEl.appendChild(row);
+    
+    let formattedText = escapeHtml(text);
+    formattedText = formattedText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    formattedText = formattedText.replace(/\n/g, '<br>');
+    
+    let i = 0;
+    function typeWriter() {
+      if (i < formattedText.length) {
+        // Handle HTML Tags so we don't print them letter-by-letter
+        if (formattedText.charAt(i) === '<') {
+          let tagEnd = formattedText.indexOf('>', i);
+          if (tagEnd !== -1) {
+            msgBubble.innerHTML += formattedText.substring(i, tagEnd + 1);
+            i = tagEnd + 1;
+          } else {
+            msgBubble.innerHTML += formattedText.charAt(i);
+            i++;
+          }
+        } 
+        // Handle HTML Entities (e.g. &amp;) so they don't print letter-by-letter
+        else if (formattedText.charAt(i) === '&') {
+          let entEnd = formattedText.indexOf(';', i);
+          if (entEnd !== -1 && (entEnd - i) < 10) { 
+            msgBubble.innerHTML += formattedText.substring(i, entEnd + 1);
+            i = entEnd + 1;
+          } else {
+            msgBubble.innerHTML += formattedText.charAt(i);
+            i++;
+          }
+        } 
+        // Normal characters
+        else {
+          msgBubble.innerHTML += formattedText.charAt(i);
+          i++;
+        }
+        messagesEl.scrollTop = messagesEl.scrollHeight;
+        
+        // Randomize speed slightly for a more natural feel (10ms - 25ms)
+        setTimeout(typeWriter, Math.random() * 15 + 10);
+      } else {
+        resolve();
+      }
+    }
+    typeWriter();
+  });
+}
+
 async function fetchResponse(prompt) {
   const token = localStorage.getItem('token');
   if (!token) {
@@ -125,7 +181,10 @@ async function sendMessage(text) {
   const responseText = await fetchResponse(text);
 
   typingRow.remove();
-  addMessage(responseText, "bot");
+  
+  // Use the new typing effect for the bot's response
+  await addTypingMessage(responseText, "bot");
+  
   isThinking = false;
   sendBtn.disabled = !textarea.value.trim();
   textarea.focus();
