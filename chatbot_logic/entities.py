@@ -2,26 +2,63 @@ import re
 
 # Dictionary mapping full names and abbreviations to standard short forms
 SUBJECTS_MAP = {
-    "dbms": "DBMS",
-    "database management": "DBMS",
-    "database management systems": "DBMS",
-    "dsa": "DSA",
-    "data structures": "DSA",
-    "data structures and algorithms": "DSA",
-    "os": "OS",
-    "operating systems": "OS",
-    "operating system": "OS",
-    "cn": "CN",
-    "computer networks": "CN",
-    "mathematics": "MATHEMATICS",
-    "maths": "MATHEMATICS",
-    "math": "MATHEMATICS",
-    "python": "PYTHON",
-    "java": "JAVA",
-    "ai": "AI",
-    "artificial intelligence": "AI",
-    "ml": "ML",
-    "machine learning": "ML"
+    # OS - CSE316
+    "os": "CSE316",
+    "operating systems": "CSE316",
+    "operating system": "CSE316",
+    "cse316": "CSE316",
+    
+    # Full Stack - INT221
+    "web dev": "INT221",
+    "full stack": "INT221",
+    "full stack web dev": "INT221",
+    "int221": "INT221",
+    
+    # AI & ML - CSE320
+    "ai & ml": "CSE320",
+    "machine learning": "CSE320",
+    "artificial intelligence": "CSE320",
+    "ai": "CSE320",
+    "ml": "CSE320",
+    "cse320": "CSE320",
+    
+    # Maths - MTH302
+    "maths": "MTH302",
+    "mathematics": "MTH302",
+    "engineering mathematics": "MTH302",
+    "mth302": "MTH302",
+    
+    # English - PEL136
+    "english": "PEL136",
+    "english advance": "PEL136",
+    "pel136": "PEL136",
+    
+    # DSA - CSE205
+    "dsa": "CSE205",
+    "data structures": "CSE205",
+    "data structures and algorithms": "CSE205",
+    "cse205": "CSE205",
+    
+    # OOP - INT205
+    "oop": "INT205",
+    "oops": "INT205",
+    "object oriented programming": "INT205",
+    "int205": "INT205",
+    
+    # AI ML Foundation - CSE276
+    "ai foundation": "CSE276",
+    "ai & ml foundation": "CSE276",
+    "cse276": "CSE276",
+    
+    # CN - CSE306
+    "cn": "CSE306",
+    "computer networks": "CSE306",
+    "cse306": "CSE306",
+    
+    # Legacy fallbacks
+    "dbms": "CSE316",
+    "java": "INT205",
+    "python": "CSE320"
 }
 
 RMS_CATEGORIES = ["ac", "electricity", "internet", "wifi", "fan", "water", "plumbing", "cleaning", "furniture", "light"]
@@ -56,6 +93,19 @@ def extract_entities(query: str):
     room_match = re.search(ROOM_REGEX, query_lower)
     if room_match:
         entities['room'] = room_match.group(1)
+
+    # Extract Target Grade
+    # Match phrases like "O grade", "A+ grade", "9 cgpa", etc.
+    grade_match = re.search(r'\b(o|a\+|a|b\+|b|c|d|e|f)\s*grade\b', query_lower)
+    if grade_match:
+        entities['target_grade'] = grade_match.group(1).upper()
+    else:
+        cgpa_match = re.search(r'\b(10|9|8|7|6|5)\s*cgpa\b', query_lower)
+        if cgpa_match:
+            val = cgpa_match.group(1)
+            # Map cgpa approx to grade
+            cgpa_map = {"10": "O", "9": "A+", "8": "A", "7": "B+", "6": "B", "5": "C"}
+            entities['target_grade'] = cgpa_map.get(val, "A")
 
     return entities
 

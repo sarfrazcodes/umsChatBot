@@ -73,3 +73,27 @@ if (logoutBtn) {
     window.location.href = "../login_ui/index.html";
   });
 }
+
+// Session expiration logic
+function checkSession() {
+  const token = localStorage.getItem("token");
+  if (!token) {
+    window.location.href = "../login_ui/index.html";
+    return;
+  }
+  
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    // payload.exp is in seconds, Date.now() is in milliseconds
+    if (payload.exp * 1000 < Date.now()) {
+      localStorage.removeItem("token");
+      window.location.href = "../login_ui/index.html";
+    }
+  } catch (e) {
+    console.error("Invalid token format", e);
+  }
+}
+
+// Check immediately on load, and then every minute
+checkSession();
+setInterval(checkSession, 60000);

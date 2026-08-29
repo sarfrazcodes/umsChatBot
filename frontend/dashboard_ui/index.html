@@ -1,166 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>UMS · Dashboard</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>UMS · Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg py-2 px-4 sticky-top">
-  <div class="container-fluid">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <span class="brand-icon"><i class="fa-solid fa-table-cells"></i></span>
-      <span><div class="fw-bold lh-1">UMS</div><div class="brand-sub">UNIVERSITY MANAGEMENT SYSTEM</div></span>
-    </a>
-    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="nav">
-      <ul class="navbar-nav mx-auto gap-1">
-        <li class="nav-item"><a class="nav-link active-tab px-3" href="#">Dashboard</a></li>
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle px-3" data-bs-toggle="dropdown" href="#">Academics</a>
-          <ul class="dropdown-menu"><li><a class="dropdown-item" href="#">Courses</a></li><li><a class="dropdown-item" href="#">Grades</a></li></ul></li>
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle px-3" data-bs-toggle="dropdown" href="#">Important Links</a>
-          <ul class="dropdown-menu"><li><a class="dropdown-item" href="#">Syllabus</a></li></ul></li>
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle px-3" data-bs-toggle="dropdown" href="#">Student Services</a>
-          <ul class="dropdown-menu"><li><a class="dropdown-item" href="#">Hostel</a></li></ul></li>
-        <li class="nav-item dropdown"><a class="nav-link dropdown-toggle px-3" data-bs-toggle="dropdown" href="#">Campus Map</a>
-          <ul class="dropdown-menu"><li><a class="dropdown-item" href="#">Blocks</a></li></ul></li>
-      </ul>
-      <div class="d-flex align-items-center gap-2">
-        <button class="icon-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <button class="icon-btn position-relative"><i class="fa-regular fa-bell"></i><span class="position-absolute top-0 end-0 bg-danger rounded-circle" style="width:7px;height:7px"></span></button>
-        <button class="icon-btn"><i class="fa-regular fa-moon"></i></button>
-        <div class="dropdown">
-          <div class="d-flex align-items-center gap-2 ms-2" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://i.pravatar.cc/64" class="avatar" alt="user">
-            <span><div class="fw-semibold small text-dark">Sarfraz</div><div class="text-muted-sm">CSE · 2nd Year</div></span>
-            <i class="fa-solid fa-chevron-down text-muted small"></i>
-          </div>
-          <ul class="dropdown-menu dropdown-menu-end mt-2 border-0 shadow-sm" style="border-radius: 12px;">
-            <li><a class="dropdown-item text-danger fw-semibold d-flex align-items-center gap-2" href="#" id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i>Logout</a></li>
-          </ul>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg py-2 px-4 sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+                <span class="brand-icon"><i class="fa-solid fa-table-cells"></i></span>
+                <span>
+                    <div class="fw-bold lh-1">UMS</div>
+                    <div class="brand-sub">UNIVERSITY MANAGEMENT SYSTEM</div>
+                </span>
+            </a>
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#nav"><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="nav">
+                <ul class="navbar-nav mx-auto gap-1">
+                    <li class="nav-item"><a class="nav-link active-tab px-3" href="#">Dashboard</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle px-3" data-bs-toggle="dropdown"
+                            href="#">Academics</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Courses</a></li>
+                            <li><a class="dropdown-item" href="#">Grades</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle px-3" data-bs-toggle="dropdown"
+                            href="#">Important Links</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Syllabus</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle px-3" data-bs-toggle="dropdown"
+                            href="#">Student Services</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Hostel</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown"><a class="nav-link dropdown-toggle px-3" data-bs-toggle="dropdown"
+                            href="#">Campus Map</a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Blocks</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center gap-2">
+                    <button class="icon-btn position-relative"><i class="fa-regular fa-bell"></i><span
+                            class="position-absolute top-0 end-0 bg-danger rounded-circle"
+                            style="width:7px;height:7px"></span></button>
+                    <div class="dropdown">
+                        <div class="d-flex align-items-center gap-2 ms-2" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <div class="text-avatar shadow-sm">S</div>
+                            <span>
+                                <div class="fw-semibold small text-dark">Sarfraz</div>
+                                <div class="text-muted-sm">CSE · 2nd Year</div>
+                            </span>
+                            <i class="fa-solid fa-chevron-down text-muted small"></i>
+                        </div>
+                        <ul class="dropdown-menu dropdown-menu-end mt-2 border-0 shadow-sm"
+                            style="border-radius: 12px;">
+                            <li><a class="dropdown-item text-danger fw-semibold d-flex align-items-center gap-2"
+                                    href="#" id="logout-btn"><i class="fa-solid fa-right-from-bracket"></i>Logout</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
+    </nav>
+
+    <div class="container-fluid px-4 py-4" style="max-width:1400px">
+
+        <!-- HERO -->
+        <div class="hero p-4 p-md-5 mb-4">
+            <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                <span class="badge-pill"><i class="fa-solid fa-wand-magic-sparkles me-1"></i>GOOD MORNING <span
+                        class="opacity-75 ms-2" id="today-date"></span></span>
+                <div class="text-end">
+                    <span class="badge-sem px-3 py-2 d-inline-block"><i class="fa-regular fa-calendar me-1"></i>Semester
+                        2</span>
+                    <div class="text-white-50 small mt-1">B.TECH COMPUTER SCIENCE</div>
+                </div>
+            </div>
+            <h1 class="display-5 fw-bold mt-4 mb-2">Welcome back, Sarfraz 👋</h1>
+            <p class="text-white-50 mb-4">Here is your academic overview for today. Keep the momentum going.</p>
+            <div class="d-flex gap-4 align-items-center">
+                <div>
+                    <div class="text-white-50 eyebrow">CURRENT CGPA</div>
+                    <div class="fs-3 fw-bold">8.72</div>
+                </div>
+                <div class="vr text-white-50" style="height:36px"></div>
+                <div>
+                    <div class="text-white-50 eyebrow">ATTENDANCE</div>
+                    <div class="fs-3 fw-bold">84.5%</div>
+                </div>
+            </div>
+            <div class="hero-year">24—25</div>
+        </div>
+
+        <!-- ALERT -->
+        <div class="alert-soft p-3 mb-4 d-flex justify-content-between align-items-center">
+            <div class="d-flex gap-3 align-items-start">
+                <span class="qa-icon" style="background:#ffe3d5;color:var(--accent)"><i
+                        class="fa-solid fa-shield-halved"></i></span>
+                <div>
+                    <div class="fw-semibold">Event attendance missing?</div>
+                    <div class="text-muted-sm">To check your event QR attendance, <a href="#"
+                            class="text-decoration-none" style="color:var(--accent);font-weight:600">click here to view
+                            details ↗</a>.</div>
+                </div>
+            </div>
+            <button class="btn btn-sm text-muted" onclick="this.closest('.alert-soft').style.display='none'"><i
+                    class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div class="row g-4">
+            <!-- PERFORMANCE -->
+            <div class="col-lg-5">
+                <div class="card-flat p-4 h-100">
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <div class="eyebrow">PERFORMANCE</div>
+                            <h4 class="fw-bold mb-0">Current Attendance</h4>
+                        </div>
+                        <button class="icon-btn border"><i class="fa-solid fa-ellipsis"></i></button>
+                    </div>
+                    <div class="d-flex align-items-end justify-content-between mt-3">
+                        <div class="display-6 fw-bold">84.5<span class="fs-4">%</span></div>
+                        <span class="pill-good px-3 py-1"><i class="fa-solid fa-circle" style="font-size:6px"></i>
+                            Good</span>
+                    </div>
+                    <div class="text-muted-sm mb-2">Overall presence</div>
+                    <div class="progress mb-4">
+                        <div class="progress-bar progress-bar-accent" style="width:84.5%"></div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mb-2">
+                        <span class="eyebrow">SUBJECT BREAKDOWN</span><span class="text-muted-sm">This semester</span>
+                    </div>
+                    <div id="subjects"></div>
+                </div>
+            </div>
+
+            <!-- SCHEDULE -->
+            <div class="col-lg-7">
+                <div class="card-flat p-4 h-100">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex gap-2 align-items-start">
+                            <span class="qa-icon" style="background:#ffe3d5;color:var(--accent)"><i
+                                    class="fa-regular fa-calendar"></i></span>
+                            <div>
+                                <div class="eyebrow">TODAY ON CAMPUS</div>
+                                <h4 class="fw-bold mb-0">Class Schedule</h4>
+                            </div>
+                        </div>
+                        <a href="#" class="text-decoration-none small fw-semibold" style="color:var(--accent)">Full
+                            timetable ↗</a>
+                    </div>
+                    <div class="d-flex gap-2 mb-3" id="day-tabs"></div>
+                    <div id="classes"></div>
+                </div>
+            </div>
+
+            <!-- HELP DESK -->
+            <div class="col-lg-5">
+                <div class="card-flat p-4 h-100">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div class="d-flex gap-2">
+                            <span class="qa-icon" style="background:#ece9fe;color:#6d5bd0"><i
+                                    class="fa-solid fa-ticket"></i></span>
+                            <div>
+                                <div class="eyebrow">HELP DESK</div>
+                                <h4 class="fw-bold mb-0">RMS Ticket Status</h4>
+                            </div>
+                        </div>
+                        <button class="btn btn-sm text-white" style="background:var(--accent)"><i
+                                class="fa-solid fa-pen me-1"></i>New ticket</button>
+                    </div>
+                    <div class="row g-2 mb-3">
+                        <div class="col-4">
+                            <div class="stat-box p-3 text-center">
+                                <div class="text-muted-sm">Pending</div>
+                                <div class="fs-4 fw-bold text-warning">01</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-box p-3 text-center">
+                                <div class="text-muted-sm">In progress</div>
+                                <div class="fs-4 fw-bold text-primary">02</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="stat-box p-3 text-center">
+                                <div class="text-muted-sm">Closed</div>
+                                <div class="fs-4 fw-bold" style="color:var(--green)">08</div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="eyebrow">LATEST REQUEST</div>
+                            <div class="fw-semibold">Hostel Wi-Fi Repair</div>
+                        </div>
+                        <a href="#" class="text-decoration-none small fw-semibold" style="color:var(--accent)">View
+                            history ↗</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- QUICK ACCESS -->
+            <div class="col-lg-7">
+                <div class="card-flat p-4 h-100">
+                    <div class="d-flex justify-content-between mb-3">
+                        <div>
+                            <div class="eyebrow">QUICK ACCESS</div>
+                            <h4 class="fw-bold mb-0">Student Services & Tools</h4>
+                        </div>
+                        <button class="icon-btn border"><i class="fa-solid fa-table-cells"></i></button>
+                    </div>
+                    <div class="row g-2" id="quick-access"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center mt-4 text-muted-sm">
+            <span><i class="fa-solid fa-circle text-success" style="font-size:8px"></i> UMS portal is online</span>
+            <span>Last synced just now · Need help?</span>
+        </div>
     </div>
-  </div>
-</nav>
 
-<div class="container-fluid px-4 py-4" style="max-width:1400px">
+    <a href="../chatbot_ui/index.html" class="fab text-decoration-none"><i
+            class="fa-solid fa-headset fs-4"></i><span>Ask UMS</span></a>
 
-  <!-- HERO -->
-  <div class="hero p-4 p-md-5 mb-4">
-    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
-      <span class="badge-pill"><i class="fa-solid fa-wand-magic-sparkles me-1"></i>GOOD MORNING <span class="opacity-75 ms-2" id="today-date"></span></span>
-      <div class="text-end">
-        <span class="badge-sem px-3 py-2 d-inline-block"><i class="fa-regular fa-calendar me-1"></i>Semester 2</span>
-        <div class="text-white-50 small mt-1">B.TECH COMPUTER SCIENCE</div>
-      </div>
-    </div>
-    <h1 class="display-5 fw-bold mt-4 mb-2">Welcome back, Sarfraz 👋</h1>
-    <p class="text-white-50 mb-4">Here is your academic overview for today. Keep the momentum going.</p>
-    <div class="d-flex gap-4 align-items-center">
-      <div><div class="text-white-50 eyebrow">CURRENT CGPA</div><div class="fs-3 fw-bold">8.72</div></div>
-      <div class="vr text-white-50" style="height:36px"></div>
-      <div><div class="text-white-50 eyebrow">ATTENDANCE</div><div class="fs-3 fw-bold">84.5%</div></div>
-    </div>
-    <div class="hero-year">24—25</div>
-  </div>
-
-  <!-- ALERT -->
-  <div class="alert-soft p-3 mb-4 d-flex justify-content-between align-items-center">
-    <div class="d-flex gap-3 align-items-start">
-      <span class="qa-icon" style="background:#ffe3d5;color:var(--accent)"><i class="fa-solid fa-shield-halved"></i></span>
-      <div><div class="fw-semibold">Event attendance missing?</div>
-        <div class="text-muted-sm">To check your event QR attendance, <a href="#" class="text-decoration-none" style="color:var(--accent);font-weight:600">click here to view details ↗</a>.</div></div>
-    </div>
-    <button class="btn btn-sm text-muted" onclick="this.closest('.alert-soft').style.display='none'"><i class="fa-solid fa-xmark"></i></button>
-  </div>
-
-  <div class="row g-4">
-    <!-- PERFORMANCE -->
-    <div class="col-lg-5">
-      <div class="card-flat p-4 h-100">
-        <div class="d-flex justify-content-between">
-          <div><div class="eyebrow">PERFORMANCE</div><h4 class="fw-bold mb-0">Current Attendance</h4></div>
-          <button class="icon-btn border"><i class="fa-solid fa-ellipsis"></i></button>
-        </div>
-        <div class="d-flex align-items-end justify-content-between mt-3">
-          <div class="display-6 fw-bold">84.5<span class="fs-4">%</span></div>
-          <span class="pill-good px-3 py-1"><i class="fa-solid fa-circle" style="font-size:6px"></i> Good</span>
-        </div>
-        <div class="text-muted-sm mb-2">Overall presence</div>
-        <div class="progress mb-4"><div class="progress-bar progress-bar-accent" style="width:84.5%"></div></div>
-
-        <div class="d-flex justify-content-between mb-2">
-          <span class="eyebrow">SUBJECT BREAKDOWN</span><span class="text-muted-sm">This semester</span>
-        </div>
-        <div id="subjects"></div>
-      </div>
-    </div>
-
-    <!-- SCHEDULE -->
-    <div class="col-lg-7">
-      <div class="card-flat p-4 h-100">
-        <div class="d-flex justify-content-between align-items-start mb-3">
-          <div class="d-flex gap-2 align-items-start">
-            <span class="qa-icon" style="background:#ffe3d5;color:var(--accent)"><i class="fa-regular fa-calendar"></i></span>
-            <div><div class="eyebrow">TODAY ON CAMPUS</div><h4 class="fw-bold mb-0">Class Schedule</h4></div>
-          </div>
-          <a href="#" class="text-decoration-none small fw-semibold" style="color:var(--accent)">Full timetable ↗</a>
-        </div>
-        <div class="d-flex gap-2 mb-3" id="day-tabs"></div>
-        <div id="classes"></div>
-      </div>
-    </div>
-
-    <!-- HELP DESK -->
-    <div class="col-lg-5">
-      <div class="card-flat p-4 h-100">
-        <div class="d-flex justify-content-between align-items-start mb-3">
-          <div class="d-flex gap-2">
-            <span class="qa-icon" style="background:#ece9fe;color:#6d5bd0"><i class="fa-solid fa-ticket"></i></span>
-            <div><div class="eyebrow">HELP DESK</div><h4 class="fw-bold mb-0">RMS Ticket Status</h4></div>
-          </div>
-          <button class="btn btn-sm text-white" style="background:var(--accent)"><i class="fa-solid fa-pen me-1"></i>New ticket</button>
-        </div>
-        <div class="row g-2 mb-3">
-          <div class="col-4"><div class="stat-box p-3 text-center"><div class="text-muted-sm">Pending</div><div class="fs-4 fw-bold text-warning">01</div></div></div>
-          <div class="col-4"><div class="stat-box p-3 text-center"><div class="text-muted-sm">In progress</div><div class="fs-4 fw-bold text-primary">02</div></div></div>
-          <div class="col-4"><div class="stat-box p-3 text-center"><div class="text-muted-sm">Closed</div><div class="fs-4 fw-bold" style="color:var(--green)">08</div></div></div>
-        </div>
-        <hr>
-        <div class="d-flex justify-content-between align-items-center">
-          <div><div class="eyebrow">LATEST REQUEST</div><div class="fw-semibold">Hostel Wi-Fi Repair</div></div>
-          <a href="#" class="text-decoration-none small fw-semibold" style="color:var(--accent)">View history ↗</a>
-        </div>
-      </div>
-    </div>
-
-    <!-- QUICK ACCESS -->
-    <div class="col-lg-7">
-      <div class="card-flat p-4 h-100">
-        <div class="d-flex justify-content-between mb-3">
-          <div><div class="eyebrow">QUICK ACCESS</div><h4 class="fw-bold mb-0">Student Services & Tools</h4></div>
-          <button class="icon-btn border"><i class="fa-solid fa-table-cells"></i></button>
-        </div>
-        <div class="row g-2" id="quick-access"></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="d-flex justify-content-between align-items-center mt-4 text-muted-sm">
-    <span><i class="fa-solid fa-circle text-success" style="font-size:8px"></i> UMS portal is online</span>
-    <span>Last synced just now · Need help?</span>
-  </div>
-</div>
-
-<a href="../chatbot_ui/index.html" class="fab text-decoration-none"><i class="fa-solid fa-headset fs-4"></i><span>Ask UMS</span></a>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

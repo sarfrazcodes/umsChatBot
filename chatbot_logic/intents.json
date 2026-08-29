@@ -133,10 +133,29 @@
       "mid term result", "end term result", "did i pass", "result kab aayega",
       "how much did i score in dbms", "tgpa for this semester", "marksheet"
     ],
+    "CGPA_CALCULATOR": [
+      "how can i get an o grade in dbms",
+      "what do i need to score for 9 cgpa",
+      "how to get O grade in operating systems",
+      "calculate my target marks for A grade",
+      "how many marks do i need for 9 cgpa",
+      "what should i score in end term for O grade",
+      "how to get 9 cgpa",
+      "predict my cgpa",
+      "how much do i need to score to get O grade",
+      "target grade calculation",
+      "target marks for A+",
+      "bro i am asking for 9 cgpa",
+      "if i want 9 cgpa then how much should i score in every subjects",
+      "how much should i score in all subjects for 9 cgpa"
+    ],
     "COURSE_INFO": [
       "what is the course outcome", "how many credits is dbms", "course details",
       "prerequisites for machine learning", "subject credits batao", "is this an elective course",
-      "how many practicals in this course"
+      "how many practicals in this course", "show course info of all subjects",
+      "show attendance of all subjects", "list all my subjects and their attendance",
+      "tell me course name and code of all subjects", "all courses info",
+      "show all my courses"
     ],
     "FACULTY_INFO": [
       "who is my dbms teacher", "faculty details", "teacher ka cabin kahan hai",

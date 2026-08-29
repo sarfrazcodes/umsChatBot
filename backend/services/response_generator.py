@@ -149,11 +149,31 @@ def generate_response(intent, data, query_type=None):
     if intent == "CGPA_CALCULATOR":
         if "error" in data:
             return data["error"]
-        if not data.get("possible"):
+            
+        if data.get("is_all_subjects"):
+            results = data["results"]
+            if not results:
+                return "No subjects found to calculate."
+            
+            msg = f"To achieve an {data['target_grade'].upper()} grade, here is what you need to score across your subjects:\n\n"
+            for r in results:
+                msg += f"**{r['subject']}**: {r['message']}\n\n"
+            return msg.strip()
+        else:
             return data["message"]
         
-        return data["message"] + f" Your current internal score is {data['internal_score']} out of 50."
-        
+    if intent == "COURSE_INFO":
+        if "error" in data:
+            return data["error"]
+        courses = data.get("courses", [])
+        if not courses:
+            return "You are not enrolled in any courses."
+            
+        msg = "Here are your enrolled courses and current attendance:\n"
+        for c in courses:
+            msg += f"- **{c['code']}**: {c['name']} | Attendance: **{c['attendance']}%**\n"
+            
+        return msg.strip()
     if intent == "PROFILE":
         return f"Here is your profile:\nName: {data['name']}\nRegistration: {data['registration_number']}\nBranch: {data['branch']}, Semester {data['semester']}\nCGPA: {data['cgpa']}, TGPA: {data['tgpa']}\nBacklogs: {data['backlogs']}"
 

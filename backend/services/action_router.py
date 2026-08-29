@@ -18,7 +18,7 @@ from services.rms_service import create_rms_ticket, check_rms_status
 from services.leave_service import apply_leave, get_leave_status
 from services.message_service import search_messages
 from services.placement_service import get_eligible_drives, register_for_drive
-from services.academic_service import get_profile, calculate_target_marks
+from services.academic_service import get_profile, calculate_target_marks, get_all_course_info
 from services.response_generator import generate_response
 
 def handle_user_query(query: str, registration_number: str) -> str:
@@ -119,9 +119,29 @@ def handle_user_query(query: str, registration_number: str) -> str:
                 data = {"error": "You are not eligible for any drives to register for."}
                 
         elif intent == "CGPA_CALCULATOR":
-            subject = entities.get("subject", "CSE301")
             grade = entities.get("target_grade", "O")
-            data = calculate_target_marks(registration_number, subject, grade)
+            subject = entities.get("subject")
+            query_lower = query.lower()
+            
+            if "all" in query_lower or "every" in query_lower or not subject:
+                from services.academic_service import get_student_by_reg_no
+                from models import Attendance
+                student = get_student_by_reg_no(registration_number)
+                if student:
+                    records = Attendance.query.filter_by(student_id=student.student_id).all()
+                    all_results = []
+                    for r in records:
+                        res = calculate_target_marks(registration_number, r.subject_code, grade)
+                        if "error" not in res:
+                            all_results.append(res)
+                    data = {"is_all_subjects": True, "results": all_results, "target_grade": grade}
+                else:
+                    data = {"error": "Student not found"}
+            else:
+                data = calculate_target_marks(registration_number, subject, grade)
+            
+        elif intent == "COURSE_INFO":
+            data = get_all_course_info(registration_number)
             
         elif intent == "PROFILE":
             data = get_profile(registration_number)
