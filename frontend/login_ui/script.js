@@ -86,4 +86,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    /* =================================================
+       DEMO LOGIN FUNCTIONALITY
+    ================================================= */
+    const demoLoginBtn = document.getElementById("demoLoginBtn");
+    if (demoLoginBtn) {
+        demoLoginBtn.addEventListener("click", () => {
+            // Auto-fill credentials
+            if (registrationInput) registrationInput.value = "DEMO-USER";
+            if (passwordInput) passwordInput.value = "demo123";
+
+            // Directly log in without backend validation
+            localStorage.setItem('token', 'demo-token-12345');
+            window.location.href = '../dashboard_ui/index.html';
+        });
+    }
+
 });

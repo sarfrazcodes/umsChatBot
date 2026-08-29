@@ -1,23 +1,23 @@
 // DOM Elements
 const chatApp = document.getElementById('chatApp'),
-      sidebar = document.getElementById('sidebar'),
-      menuToggleBtn = document.getElementById('menuToggleBtn'),
-      toggleModeBtn = document.getElementById('toggleModeBtn'),
-      closeBtn = document.getElementById('closeBtn'),
-      toggleIcon = document.getElementById('toggleIcon'),
-      toggleText = document.getElementById('toggleText'),
-      clearBtn = document.getElementById('clearBtn'),
-      newChatBtn = document.getElementById('newChatBtn'),
-      resetViewBtn = document.getElementById('resetViewBtn'),
-      chatTitle = document.getElementById('chatTitle'),
-      emptyState = document.getElementById('emptyState'),
-      messageList = document.getElementById('messageList'),
-      chatScroll = document.getElementById('chatScroll'),
-      composerForm = document.getElementById('composerForm'),
-      draftInput = document.getElementById('draftInput'),
-      sendBtn = document.getElementById('sendBtn'),
-      recentList = document.getElementById('recentList'),
-      quickGrid = document.getElementById('quickGrid');
+  sidebar = document.getElementById('sidebar'),
+  menuToggleBtn = document.getElementById('menuToggleBtn'),
+  toggleModeBtn = document.getElementById('toggleModeBtn'),
+  closeBtn = document.getElementById('closeBtn'),
+  toggleIcon = document.getElementById('toggleIcon'),
+  toggleText = document.getElementById('toggleText'),
+  clearBtn = document.getElementById('clearBtn'),
+  newChatBtn = document.getElementById('newChatBtn'),
+  resetViewBtn = document.getElementById('resetViewBtn'),
+  chatTitle = document.getElementById('chatTitle'),
+  emptyState = document.getElementById('emptyState'),
+  messageList = document.getElementById('messageList'),
+  chatScroll = document.getElementById('chatScroll'),
+  composerForm = document.getElementById('composerForm'),
+  draftInput = document.getElementById('draftInput'),
+  sendBtn = document.getElementById('sendBtn'),
+  recentList = document.getElementById('recentList'),
+  quickGrid = document.getElementById('quickGrid');
 
 // Data Collections (Tuned with Warm Amber & Earth Tones)
 const quickActions = [
@@ -150,7 +150,7 @@ async function sendPrompt(raw) {
   chatScroll.scrollTop = chatScroll.scrollHeight;
 
   const responseText = await fetchResponse(text);
-  
+
   thinkRow.remove();
   addMessage('assistant', responseText);
   isThinking = false;
